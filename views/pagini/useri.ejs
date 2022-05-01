@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html  lang="ro">
+    <head>
+        <meta name="description" content="Ansamblul rezidential MB urmatoarele locuinte noi construite:apartamente, garsoniere si duplexuri.">
+        <meta name="keywords" content="casa, apartamente, duplexuri, garsoniere, Ansamblu rezidential, MB">
+        
+        <link rel="stylesheet" href="/resurse/css/useri.css" type="text/css" />
+        <title>Ansamblu rezidential MB</title>
+        <%- include("../fragmente/head") %>     
+        <script type="text/javascript" src=/resurse/js/produse.js></script>
+    </head>
+    <body>
+    <%- include("../fragmente/header") %>
+
+    <main>
+    <div class="afisaj">
+        <h2>Useri</h2>
+
+		<table id="useri">
+		  <tr>
+			<th>id</th><th>Nume</th><th>Rol</th><th>Schimba rol</th>
+		  </tr>
+
+		  <% for (var i = 0; i < useri.length; i++) { 
+				if((useri[i].rol=="comun" || useri[i].rol=="admin") && useri[i].id != utilizator.id){
+				%>
+				<tr>
+				  <td><%= useri[i].id %></td>
+				  <td><%= useri[i].nume %> <%= useri[i].prenume[0] %></td>
+                  <!-- <td></td> -->
+				  <!-- <td><%= useri[i].email %></td>
+				  <%  
+					d=new Date(useri[i].data_adaugare)
+					sir_data=`${d.getDate()}/${d.getMonth()}/${d.getFullYear()} ${d.getHours()}:${d.getMinutes()}:${d.getSeconds()}`
+				  %>
+				  <td><%=  sir_data %></td> -->
+				   <td><%=  useri[i].rol %></td>
+                   <td>
+                    <form id="sterge" method="post" action="/schimba_rol">
+                        <!-- <input type="hidden" id="rolUt" name="rolUt" value="<%- utilizator.rol %>" > -->
+                        <input type="hidden" id="idUt" name="idUt" value="<%- useri[i].id %>" >
+                        <input type="submit" value="Prom/Retro">
+                    </form>
+                </td>
+				</tr> 
+                    
+				<% } %>			
+		  <% } %>
+		</table>
+		
+		<!-- <p>Schimba rolul utilizatorului:</p> -->
+		<!-- <form id="sterge" method="post" action="/schimba_rol">
+			<label>
+				Id: <input type="text" name="id_utiliz" value="">
+                <input type="hidden" id="rolUt" name="rolUt" value="<%- utilizator.rol %>" >
+			</label>
+			
+			<input type="submit" value="Submit">
+		</form> -->
+	</div>
+</main>
+
+
+    <%- include("../fragmente/footer") %>
+
+</body>
+</html>

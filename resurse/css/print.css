@@ -1,0 +1,83 @@
+#watermark {
+    display: none;
+}
+
+@media print {
+    #sectiune-galerie-animata,aside,div.link_top,div.cerc,a.aa, img,video, nav ,section.container-video{
+        display: none;
+    }
+
+    .galeriestatica{
+        display: none;
+    }
+
+    header {
+        transform: scale(2.5);
+        page-break-after: always;
+        text-align: center;
+        margin-top: 10cm;
+        margin-left: 10cm;
+        text-decoration: underline;
+    }
+
+    div.banner {
+        
+        visibility: visible;
+        position: absolute;
+        text-align: center;
+        top: 0;
+        border: 3px dotted black;
+        width: 80%;
+        
+    }
+
+    html, body {
+        width: 210mm;
+        overflow: visible !important;
+    }
+
+    #watermark
+    {
+        display: block;
+        position: fixed;
+        bottom:0;
+        color:rgba(0,0,0,0.4);
+        left: 50%;
+    }
+    #watermark::after{
+        opacity:0.65;
+        width: 100px;
+        height: 2cm;
+        
+        padding:5px;
+        display: block;
+        background: white;
+        border:3px double black;
+        border-radius: 3px;
+        
+        content:"Birsan Mihai";
+    }
+   
+    footer {
+        page-break-before: always;
+    }
+
+}
+
+@page {
+    size: A4 portrait;
+    margin-bottom: 2cm;
+    margin-top: 2cm;
+    counter-increment: page;
+}
+
+@page:left {
+    margin-left: 2.5cm;
+    margin-right: 0.5cm;
+    border-radius: 20cm;
+}
+
+@page:right {
+    margin-left: 0.5cm;
+    margin-right: 2.5cm;
+}

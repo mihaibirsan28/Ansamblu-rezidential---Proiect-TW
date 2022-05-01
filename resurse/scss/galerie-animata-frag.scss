@@ -1,0 +1,542 @@
+$transformare_i:skewX(0deg) !default;
+$transformare_f:skewX(90deg) !default;
+$setare-server:black !default;
+$nr_imagini : $nr_imagini !default;
+
+
+// #galerie-animata{
+// 	padding-left: var(--padding-intern);
+// 	padding-right: var(--padding-intern);
+// }
+
+div.galerie-grid{
+    display:grid;
+    border:2px black;
+    //width:1200px;
+    grid-template-columns: repeat( $nr_imagini,400px);
+    grid-template-rows: repeat( $nr_imagini,300px);
+    grid-row-gap :0;
+    grid-column-gap: 0;
+	grid-gap: 0;
+	position: absolute;
+	top:0;
+    left:0;
+    animation-name:galerie;
+	transform-origin: center center;
+    animation-timing-function:linear;
+    animation-iteration-count:infinite;
+    animation-duration:7s * $nr_imagini ;
+	&:hover {
+		animation-play-state: paused;
+	}
+}
+@for $i from ($nr_imagini*$nr_imagini)+1 through 18{
+    div.galerie-grid figure:nth-of-type(#{$i}){
+        display: none;
+    }
+
+}
+
+.galerie-a {
+    width: 400px;
+    height: 300px;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 5rem;
+    border: 3px inset $setare-server;
+}
+
+div.galerie-grid img {
+	width: 100%;
+}
+
+.galerie-a figcaption {
+    position: absolute;
+    bottom: 0;
+    background-color: lightblue;
+    width: 100%;
+    text-align: center;
+}
+
+.galerie-a figure {
+    position: relative;
+    margin: 0;
+	overflow: hidden;
+    width: 400px;
+    height: 300px;
+}
+
+
+
+
+/*cum calculam timpii:
+- avem 7 poze; vrem pentru fiecare un timp de afisare de 1.5 secunde si o trecere spre urmatoarea poza de 1.5 secunde
+- rezulta 3 secunde pentru fiecare imagine
+- 7imagini * 3secunde =21 secunde in total pentru animatie (animation-duration) si fiecare poza cu un delay = 3* numarul de ordine
+- momentul in care trebuie ascunsa poza si pusa in spatele celorlalte (ca sa isi astepte randul pentru noua animatie:
+il calculam cu formula  timp_afisare(normal+trecerea la urmatoarea poza)/timp_total*100 = 3/21*100 =  14.285714(aproximativ)
+100%..... 21s
+x%........3s
+
+- calculam 100-14.285714=85.714286 - la acest moment imaginea trebuie sa se vada in spatele imaginii care se afiseaza in mod curent (ca sa se vada si cat timp se realizeaza efectul de schimbare a imaginii
+*/
+
+@if $nr_imagini == 3 {
+
+	@keyframes galerie{
+		0% {//1
+			transform: scale(1);
+			top: 0;
+			left: 0;
+		}
+		8.5% {//1
+			transform: scale(1);
+			top: 0;
+			left: 0;
+		}
+		11% {
+			transform: scale(0.3333);
+			top: -300px;
+			left: -400px;
+		}
+		13.5% {//2
+			transform: scale(1);
+			top: 0;
+			left: -800px;
+		}
+		19.5% {
+			transform: scale(1);
+			top: 0;
+			left: -800px;
+		}
+		22% {
+			transform: scale(0.3333);
+			top: -300px;
+			left: -400px;
+		}
+		24.5% {//3
+			transform: scale(1);
+			top: 0;
+			left: -400px;
+		}
+		30.5% {
+			transform: scale(1);
+			top: 0;
+			left: -400px;
+		}
+		33% {
+			transform: scale(0.3333);
+			top: -300px;
+			left: -400px;
+		}
+		35.5% {//4
+			transform: scale(1);
+			top: -300px;
+			left: -400px;
+		}
+		41.5% {
+			transform: scale(1);
+			top: -300px;
+			left: -400px;
+		}
+		44% {
+			transform: scale(0.3333);
+			top: -300px;
+			left: -400px;
+		}
+		46.5% {//5
+			transform: scale(1);
+			top: -300px;
+			left: -800px;
+		}
+		52.5% {
+			transform: scale(1);
+			top: -300px;
+			left: -800px;
+		}
+		55% {
+			transform: scale(0.3333);
+			top: -300px;
+			left: -400px;
+		}
+		57.5% {//6
+			transform: scale(1);
+			top: -600px;
+			left: -800px;
+		}
+		63.5% {
+			transform: scale(1);
+			top: -600px;
+			left: -800px;
+		}
+		66% {
+			transform: scale(0.3333);
+			top: -300px;
+			left: -400px;
+		}
+		68.5% {//7
+			transform: scale(1);
+			top: -300px;
+			left: 0;
+		}
+		74.5% {
+			transform: scale(1);
+			top: -300px;
+			left: 0;
+		}
+		77% {
+			transform: scale(0.3333);
+			top: -300px;
+			left: -400px;
+		}
+		79.5% {//8
+			transform: scale(1);
+			top: -600px;
+			left: -400px;
+		}
+		85.5% {
+			transform: scale(1);
+			top: -600px;
+			left: -400px;
+		}
+		88% {
+			transform: scale(0.3333);
+			top: -300px;
+			left: -400px;
+		}
+		90.5% {//9
+			transform: scale(1);
+			top: -600px;
+			left: 0;
+		}
+		96.5% {
+			transform: scale(1);
+			top: -600px;
+			left: 0;
+		}
+		100% {
+			transform: scale(0.3333);
+			top: -300px;
+			left: -400px;
+		}
+	}
+}
+ 
+@if $nr_imagini == 2 {
+
+	@keyframes galerie {
+		0% {//1
+			transform: scale(1);
+			top: 0;
+			left: 0;
+		}
+		18.7% {
+			transform: scale(1);
+			top: 0;
+			left: 0;
+		}
+		24.9% {
+			transform: scale(0.5);
+			top: -150px;
+			left: -200px;
+		}
+		31.1% {//2
+			transform: scale(1);
+			top: -300px;
+			left: -400px;
+		}
+		43.6% {
+			transform: scale(1);
+			top: -300px;
+			left: -400px;
+		}
+		49.8% {
+			transform: scale(0.5);
+			top: -150px;
+			left: -200px;
+		}
+		56% {//3
+			transform: scale(1);
+			top: -300px;
+			left: 0;
+		}
+		68.5% {
+			transform: scale(1);
+			top: -300px;
+			left: 0;
+		}
+		74.7% {
+			transform: scale(0.5);
+			top: -150px;
+			left: -200px;
+		}
+		80.9% {//4
+			transform: scale(1);
+			top: 0;
+			left: -400px;
+		}
+		93.4% {
+			transform: scale(1);
+			top: 0;
+			left: -400px;
+		}
+		100% {
+			transform: scale(0.5);
+			top: -150px;
+			left: -200px;
+		}
+	}
+
+}
+
+@if $nr_imagini == 4 {
+
+	@keyframes galerie {
+		0% {//1
+			transform: scale(1);
+			top: 0;
+			left: 0;
+		}
+		4.68% {
+			transform: scale(1);
+			top: 0;
+			left: 0;
+		}
+		6.24% {
+			transform: scale(0.25);
+			top: -450px;
+			left: -600px;
+		}
+		7.8% {//2
+			transform: scale(1);
+			top: 0;
+			left: -800px;
+		}
+		10.92% {
+			transform: scale(1);
+			top: 0;
+			left: -800px;
+		}
+		12.48% {
+			transform: scale(0.25);
+			top: -450px;
+			left: -600px;
+		}
+		14.04% {//3
+			transform: scale(1);
+			top: 0;
+			left: -400px;
+		}
+		17.16% {
+			transform: scale(1);
+			top: 0;
+			left: -400px;
+		}
+		18.72% {
+			transform: scale(0.25);
+			top: -450px;
+			left: -600px;
+		}
+		20.28% {//4
+			transform: scale(1);
+			top: -300px;
+			left: -400px;
+		}
+		23.4% {
+			transform: scale(1);
+			top: -300px;
+			left: -400px;
+		}
+		24.96% {
+			transform: scale(0.25);
+			top: -450px;
+			left: -600px;
+		}
+		26.52% {//5
+			transform: scale(1);
+			top: -300px;
+			left: -800px;
+		}
+		29.64% {
+			transform: scale(1);
+			top: -300px;
+			left: -800px;
+		}
+		31.2% {
+			transform: scale(0.25);
+			top: -450px;
+			left: -600px;
+		}
+		32.76% {//6
+			transform: scale(1);
+			top: -600px;
+			left: -800px;
+		}
+		35.88% {
+			transform: scale(1);
+			top: -600px;
+			left: -800px;
+		}
+		37.44% {
+			transform: scale(0.25);
+			top: -450px;
+			left: -600px;
+		}
+		39% {//7
+			transform: scale(1);
+			top: -300px;
+			left: 0;
+		}
+		42.12% {
+			transform: scale(1);
+			top: -300px;
+			left: 0;
+		}
+		43.68% {
+			transform: scale(0.25);
+			top: -450px;
+			left: -600px;
+		}
+		45.24% {//8
+			transform: scale(1);
+			top: -600px;
+			left: -400px;
+		}
+		48.36% {
+			transform: scale(1);
+			top: -600px;
+			left: -400px;
+		}
+		49.92% {
+			transform: scale(0.25);
+			top: -450px;
+			left: -600px;
+		}
+		51.48% {//9
+			transform: scale(1);
+			top: -600px;
+			left: 0;
+		}
+		54.6% {
+			transform: scale(1);
+			top: -600px;
+			left: 0;
+		}
+		56.16% {
+			transform: scale(0.25);
+			top: -450px;
+			left: -600px;
+		}
+		57.72% {//10
+			transform: scale(1);
+			top: 0;
+			left: -1200px;
+		}
+		60.84% {
+			transform: scale(1);
+			top: 0;
+			left: -1200px;
+		}
+		62.4% {
+			transform: scale(0.25);
+			top: -450px;
+			left: -600px;
+		}
+		63.96% {//11
+			transform: scale(1);
+			top: -900px;
+			left: -1200px;
+		}
+		67.08% {
+			transform: scale(1);
+			top: -900px;
+			left: -1200px;
+		}
+		68.64% {
+			transform: scale(0.25);
+			top: -450px;
+			left: -600px;
+		}
+		70.2% {//12
+			transform: scale(1);
+			top: -900px;
+			left: -400px;
+		}
+		73.32% {
+			transform: scale(1);
+			top: -900px;
+			left: -400px;
+		}
+		74.88% {
+			transform: scale(0.25);
+			top: -450px;
+			left: -600px;
+		}
+		76.44% {//13
+			transform: scale(1);
+			top: -300px;
+			left: -1200px;
+		}
+		79.56% {
+			transform: scale(1);
+			top: -300px;
+			left: -1200px;
+		}
+		81.12% {
+			transform: scale(0.25);
+			top: -450px;
+			left: -600px;
+		}
+		82.68% {//14
+			transform: scale(1);
+			top: -900px;
+			left: 0;
+		}
+		85.8% {
+			transform: scale(1);
+			top: -900px;
+			left: 0;
+		}
+		87.36% {
+			transform: scale(0.25);
+			top: -450px;
+			left: -600px;
+		}
+		88.92% {//15
+			transform: scale(1);
+			top: -600px;
+			left: -1200px;
+		}
+		92.04% {
+			transform: scale(1);
+			top: -600px;
+			left: -1200px;
+		}
+		93.6% {
+			transform: scale(0.25);
+			top: -450px;
+			left: -600px;
+		}
+		95.16% {//16
+			transform: scale(1);
+			top: -900px;
+			left: -800px;
+		}
+		98.28% {
+			transform: scale(1);
+			top: -900px;
+			left: -800px;
+		}
+		100% {
+			transform: scale(0.25);
+			top: -450px;
+			left: -600px;
+		}
+	}
+}
+
+@media screen and (max-width:500px){
+	#sectiune-galerie-animata{
+		display: none;
+	}
+}

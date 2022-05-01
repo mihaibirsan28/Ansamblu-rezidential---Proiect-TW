@@ -1,0 +1,120 @@
+ 
+<!DOCTYPE html>
+<html  lang="ro">
+    <head>
+        <meta name="description" content="Ansamblul rezidential MB urmatoarele locuinte noi construite:apartamente, garsoniere si duplexuri.">
+        <meta name="keywords" content="casa, apartamente, duplexuri, garsoniere, Ansamblu rezidential, MB">
+        
+        <title>Ansamblul rezidential MB</title>
+        <%- include("../fragmente/head") %>     
+        <link href="/resurse/css/locuinte.css" type="text/css" rel="stylesheet" />  
+        <link rel="stylesheet" href="resurse/css/locuinte-1200.css" type="text/css"  media="screen and (max-width:1200px)"/>
+        <link rel="stylesheet" href="resurse/css/locuinte-500.css" type="text/css"  media="screen and (max-width:650px)"/>
+        <link href="/resurse/css/locuinta.css" type="text/css" rel="stylesheet" />   
+        
+        <script type="text/javascript" src="/resurse/js/produse.js"></script>
+    </head>
+    <body>
+    <%- include("../fragmente/header") %>
+
+    <main>
+        <section class="inputuri">
+            <div class="inpt">
+                <label class="inptr">Cauta locuinta dorita:<span class="exemplu"><input type="text" id="inp-text">(de ex: apartament cu 2 camere, apartament cu 3 camere, duplex, garsoniera, apartament cu 4 camere)</span> </label><br>
+                <label class="inptr"> Pret maxim: <input type="range" id="inp-pret" value="0" min="30000"  max="160000"></label><br>
+                <!-- <label> Stadiu constructie: <input type="radio" id="inp-constructie" value="toate"></label> -->
+                <!-- <label > Suprafata maxima: <input type="number" id="inp-suprafata" value="160"></label><br> -->
+
+                <label class="radio-inptr">Tipul locuintei dorite:
+                    <% for ( let tipprod of locals.tipLoc) { %>
+                        <br><input type="checkbox" value="<%- tipprod.tip %>" name="tip-locuinta"><label class="litera"><%- tipprod.tip %></label>
+                        <span class="checkmark"></span>    
+                    <% } %>
+                    <br><input type="checkbox" value="toate" name="tip-locuinta" checked><label>Orice tip de locuinta</label>
+                </label><br>
+
+                <label class="inptr"> Stadiu constructie locuinta:
+                    <span class="exemplu">(Pentru a selecta mai multe optiuni trebuie sa apasati tasta Ctrl)</span><br>
+                    <select id="inp-stadiu" multiple>
+                        <% for( let stadiucons of locals.stadiuC) { %>
+                            <option type="checkbox" value="<%- stadiucons.stadiu %>" name="stadiu"><label><%- stadiucons.stadiu %></label></option>
+                        <%  } %>
+                    </select>
+                </label><br>
+
+                <label class="inptr">Selectati suprafata maxima dorita pentru locuinta dumneavoastra:
+                    <input type="radio" value="45" name="suprafata"><label>45 mp</label>
+                    <input type="radio" value="60" name="suprafata"><label>60 mp</label>
+                    <input type="radio" value="75" name="suprafata"><label>75 mp</label>
+                    <input type="radio" value="100" name="suprafata"><label>100 mp</label>
+                    <input type="radio" value="115" name="suprafata"><label>115 mp</label>
+                    <input type="radio" value="140" name="suprafata"><label>140 mp</label>
+                    <input type="radio" value="160" name="suprafata" checked><label>160 mp</label>
+                </label><br>
+
+                <label class="inptr">Selectati locuintele in functie de bucatarie:
+                    <select id="inp-bucatarie">
+                        <option value="toate">Toate</option>
+                        <option value="true">Bucatarie open-space</option>
+                        <option value="false">Bucatarie individuala</option>
+                    </select>
+                </label><br>
+                <input type="text" >
+
+            </div>
+            <div class="dr">
+                <p class="butoane">
+                    <button id="filtrare" class="buton">Filtrează</button>
+                    <button id="sortCrescNume" class="buton">Sortează crescător după subcategorie</button>
+                    <button id="sortDescrescNume" class="buton">Sortează descrescător după sugcategorie</button>
+                    <button id="resetare" class="buton">Resetează</button>
+                    <button id="suma" class="buton">Suma locuintelor</button>
+                    
+                <!-- </p>
+                <p id="p-suma">Apasați Alt+"c" pentru suma prețurilor produselor afișate. </p> -->
+            </div>
+            
+            <!-- <p id="p-suma">Apasați Alt+"c" pentru suma preturilor produselor afișate. </p> -->
+        </section>
+        
+        <section id="locuinte">
+            <h2>Produse</h2>
+            <div class="grid-locuinte">
+                <% for( let prod of locals.produse) { %>
+                    <article class="produs">
+                        <h3 class="nume"><a href="/produs/<%-prod.id %>" ><span class="val-nume"><%- prod.nume%></span></a></h3>
+                        
+                        <div class="info-locuinta">
+                            <div class="info-locuinta1">
+                                <figure>
+                                    <a href="/produs/<%-prod.id %>" ><img src="/resurse/images/produse/<%- prod.imagine %>" style="width:100%;height:auto;" alt="[imagine <%- prod.nume %>]" /></a>
+                                </figure>
+                                <p class="suprafata"><i class='fas fa-hammer'></i> Suprafata: <span class="val-suprafata" style="color:blue"><%- prod.suprafata%></span>mp</p>
+                                <p class="pret"><i class='fas fa-money-check-alt'></i> Pret: <span class="val-pret" ><%- prod.pret%></span>€</p>
+                                <p class="mobilat"><i class="fas fa-couch"></i> Camere mobilate: <span class="val-mobilat"><%- prod.mobilat%></span></p>
+                                <p class="data"><i class='far fa-clock'></i> Data terminare locuinta: <span class="val-data"><%- prod.data_terminare_locuinta%></span></p>
+                                <p class="bucatarie"><i class="fas fa-bread-slice"></i><span class="val-bucatarie"><%- prod.bucatarie_open_space%></span></p> 
+                                
+                            </div>
+                            <div class="info-locuinta2">
+                                <p class="categorie"><i class="fas fa-building"></i> Categorie: <span class="val-tip-locuinta"><%- prod.tip_locuinta%></span></p>
+                                <p class="stadiu_cosntructie"><i class="fas fa-wrench"></i> Stadiu constructie: <span class="val-stadiu-constructie"><%- prod.stadiu_constructie%></span></p>
+                                <p class="descriere"><i class="fas fa-pencil-ruler"></i> Descriere: <span class="val-descriere"><%- prod.descriere%></span></p>
+                                <label class="selecteaza-cos">
+                                    Selectează:<br/>
+                                    <input type="checkbox" class="select-cos" value="<%-prod.id %>" autocomplete="off">
+                                </label>
+                            </div>
+                            
+                        </div>
+                      
+                    </article>
+                <% }%>
+            </div>
+        </section>
+       
+    </main>
+
+    <%- include("../fragmente/footer") %>
+    </body>
+</html>

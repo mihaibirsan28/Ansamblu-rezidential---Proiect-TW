@@ -1,0 +1,134 @@
+{
+	"cale_galerie":"resurse/images/galerie",
+	"imagini": [
+		{
+            "cale_relativa":"sapare-fundatie.jpg",
+            "nume":"Saparea fundatiei",
+			"descriere":"Saparea fundatiei ansamblului rezidential",
+            "timp":"dimineata",
+            "animata": true
+		},
+		{
+            "cale_relativa":"fundatie-1.jpg",
+            "nume":"Fundatie",
+			"descriere":"Fundatia ansamblului rezidential",
+            "timp":"dimineata",
+            "animata": true
+		},
+		{
+            "cale_relativa":"constructie-ansamblu-1.jpg",
+            "nume":"Construirea primului etaj",
+			"descriere":"Construirea primului etaj din ansamblul rezidential",
+            "timp":"dimineata",
+            "animata": true
+		},
+		{
+            "cale_relativa":"constructie-ansamblu-2.jpg",
+            "nume":"Construirea ansamblului",
+			"descriere":"Construirea ansamblului rezidential la rosu",
+            "timp":"dimineata",
+            "animata": true
+		},
+		{
+            "cale_relativa":"constructie-ansamblu-3.jpg",
+            "nume":"Constructia ultimului etaj",
+			"descriere":"Constructia ultimului etaj din ansamblu rezidential",
+            "timp":"dimineata",
+            "animata": true
+		},
+		{
+            "cale_relativa":"izolatie-exterior.jpg",
+            "nume":"Izolatia fonica si termica",
+			"descriere":"Izolatia fonica si termica a ansamblului rezidential",
+            "timp":"dimineata",
+            "animata": true
+		},
+		{
+            "cale_relativa":"finisaje-interior.jpg",
+            "nume":"Finisaje interior",
+			"descriere":"Finisajele interiore din ansamblu rezidential",
+            "timp":"zi",
+            "animata": true
+		},
+        {
+            "cale_relativa":"finisaje-bucatarie.jpg",
+            "nume":"Finisaje bucatarie",
+			"descriere":"Finisajele bucatariilor din ansamblu rezidential",
+            "timp":"zi",
+            "animata": true
+		},
+        {
+            "cale_relativa":"finisaje-baie.jpg",
+            "nume":"Finisaje baie",
+			"descriere":"Finisajele bailor din ansamblu rezidential",
+            "timp":"zi",
+            "animata": true
+		},
+        {
+            "cale_relativa":"finisaje-dormitor.jpg",
+            "nume":"Finisaje dormitor",
+			"descriere":"Finisajele dormitoarelor din ansamblu rezidential",
+            "timp":"zi",
+            "animata": true
+		},
+        {
+            "cale_relativa":"constructie-ansamblu-4.jpg",
+            "nume":"Constructia bloc-1",
+			"descriere":"Constructia blocului 1 din ansamblu",
+            "timp":"zi",
+            "animata": true,
+            "cc-by":"<Construction works for the Panama Canal expansion project> by World Bank Photo Collection is licensed with CC BY-NC-ND 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by-nc-nd/2.0/"
+		},
+        {
+            "cale_relativa":"constructie-ansamblu-5.jpg",
+            "nume":"Constructia bloc-2",
+			"descriere":"Constructia blocului 2 din ansamblu",
+            "timp":"zi",
+            "cc-by":"<Construction workers> by World Bank Photo Collection is licensed with CC BY-NC-ND 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by-nc-nd/2.0/"
+        },
+        {
+            "cale_relativa":"ansamblu-rezidential-randare.jpg",
+            "nume":"Randare ansamblu rezidential",
+			"descriere":"Ansamblu rezidential MB randare",
+            "timp":"noapte",
+            "animata": true
+		},
+        {
+            "cale_relativa":"bloc-1-randare.jpg",
+            "nume":"Randare-bloc-1",
+			"descriere":"Randare bloc 1 din ansamblu rezidential",
+            "timp":"noapte",
+            "animata": true
+		},
+        {
+            "cale_relativa":"constructie-duplex.jpg",
+            "nume":"Constructie duplex",
+			"descriere":"Constructia unui duplex",
+            "timp":"noapte",
+            "animata": true
+		},
+        {
+            "cale_relativa":"duplex-1-randare.jpg",
+            "nume":"Randare-duplex",
+			"descriere":"Randare duplex",
+            "timp":"noapte",
+            "animata": true
+		},
+        
+        {
+            "cale_relativa":"parcare-subterana.jpg",
+            "nume":"Parcare subterana bloc 2",
+			"descriere":"Parcare subterana bloc 2",
+            "timp":"noapte",
+            "animata": true
+		},
+        {
+            "cale_relativa":"parcare-subterana-bloc-1.jpg",
+            "nume":"Parcare subterana bloc 1",
+			"descriere":"Parcare subterana bloc 1",
+            "timp":"noapte"
+		}
+
+
+	]
+}

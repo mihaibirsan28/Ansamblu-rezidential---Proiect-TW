@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html  lang="ro">
+    <head>
+        <meta name="description" content="Ansamblul rezidential MB urmatoarele locuinte noi construite:apartamente, garsoniere si duplexuri.">
+        <meta name="keywords" content="casa, apartamente, duplexuri, garsoniere, Ansamblu rezidential, MB">
+        
+        <title>Ansamblul rezidential MB-Locuinte</title>
+        <link rel="stylesheet" href="/resurse/css/locuinta.css" type="text/css" />
+        <script type="text/javascript" src=/resurse/js/produs.js></script>
+        <%- include("../fragmente/head") %>     
+        <!-- <link href="/resurse/css/locuinta.css" type="text/css" rel="stylesheet" />    -->
+        
+    </head>
+    <body>
+        <%- include("../fragmente/header") %> 
+    
+        <main>
+            <section>
+                <h2>Pagină locuinta</h2>
+                    <article id="art-produs">
+                        <h3><span class="nume"><%- locals.prod.nume %></span></h3>
+                        <p>Preț: <span class="pret"><%- locals.prod.pret %> euro</span> </p>
+                        <p>Descriere: <span class="descriere"><%- locals.prod.descriere %> </span></p>
+                        <p>Tipul locuinta: <span class="categorie"><%- locals.prod.tip_locuinta %> </span></p>
+                        <p>Stadiul constructiei: <span class="tip_miere"><%- locals.prod.stadiu_constructie %> </span></p>
+                        <p>Etaj: <span class="recipient"><%- locals.prod.etaj %> </span></p>
+                        <p>Suprafata: <span class="gramaj"><%- locals.prod.suprafata %> mp </span></p>
+                        <p>Camere mobilate: <span class="propr"><%- locals.prod.mobilat %> </span></p>
+                        <p>Data terminarii locuintei: <span class="data"><%- locals.prod.data_terminare_locuinta %> </span></p>
+                        <p class="premiu">Bucatarie open-space:<%- locals.prod.bucatarie_open_space %></p>
+                        <figure class="imag-produs">
+                            <a href="/produs/<%-prod.id %>" ><img src="/resurse/images/produse/<%- prod.imagine %>" style="width:100%;height:auto;" alt="[imagine <%- prod.nume %>]" /></a>
+                        </figure>    
+                        </article>
+                
+            </section>
+        </main>
+        <%- include("../fragmente/footer") %> 
+        </body>
+    </html>

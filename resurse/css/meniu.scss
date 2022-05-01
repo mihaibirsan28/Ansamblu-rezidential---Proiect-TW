@@ -1,0 +1,231 @@
+
+$inaltime-meniu:3rem;
+/*
+#top-to-bottom {
+    border-width: 3px;
+    border-style: solid;
+    -webkit-border-image: 
+      -webkit-gradient(linear, 0 0, 0 100%, from(black), to(rgba(0, 0, 0, 0))) 1 100%;
+    -webkit-border-image: 
+      -webkit-linear-gradient(black, rgba(0, 0, 0, 0)) 1 100%;
+    -moz-border-image:
+      -moz-linear-gradient(black, rgba(0, 0, 0, 0)) 1 100%;    
+    -o-border-image:
+      -o-linear-gradient(black, rgba(0, 0, 0, 0)) 1 100%;
+    border-image:
+      linear-gradient(to bottom, black, rgba(0, 0, 0, 0)) 1 100%;
+}
+*/
+
+
+ul.meniu {
+	a {
+		
+        transition-property: font-size;
+        transition-duration: 0.5s;
+		transition-timing-function: linear;
+		
+		
+	}
+	div {
+		&:hover {
+			font-size: 1.1em;
+		}
+        transition-property: font-size;
+		transition-duration: 0.5s;	
+        transition-timing-function: linear;
+		
+	}
+}
+
+nav {
+	ul.meniu {
+		ul {
+			display: none;
+			position: absolute;
+			width: 100%;
+		}
+		>li {
+			float: left;
+			width: 100px;
+			position: relative;
+            
+            >a {
+                transition-property: font-size;
+                transition-duration: 0.5s;
+                transition-timing-function: linear;
+            }
+
+			&:hover {
+                >a {
+                    font-size: 1.1em;
+                }
+                
+				>ul {
+					display: block;
+					animation-name: aparitie_meniu;
+					animation-iteration-count: initial;
+					animation-duration: 1s;
+					animation-direction: initial;
+					animation-fill-mode: forwards;
+					animation-timing-function: linear;
+					transform-origin: top;
+					
+					
+				}
+                
+			}
+
+			>ul{
+                >li{
+                    position: relative;
+                    &::after{
+                        -webkit-transition: all 400ms linear;
+                        transition: all 400ms linear;
+                        transform-origin: top;
+                        transform: scaleY(0);
+                        background: linear-gradient(to left,white 0%,var(--color-meniu) 100%);
+                        font-size:2.7rem;
+                        content: "|";
+                        position: absolute;    
+                        color: transparent;
+                        top: 0;
+                        right: 0;
+                    }
+                    &::before{
+						-webkit-transition: all 400ms linear;
+						transform-origin: top;
+						transform: scaleY(0);
+						transition: all 400ms linear;
+						content: "|";
+						background: linear-gradient(to right,white 0%,var(--color-meniu) 100%);
+						font-size:2.7rem;
+						color: transparent;
+						position: absolute;
+						top: 0;
+						left: 0;
+                    }
+                }
+                >li:hover::after{
+                    transform: scaleY(1);
+                }
+                >li:hover::before{
+                    transform: scaleY(1);
+                } 
+            }  
+		}
+		li {
+			text-align: center;
+			list-style-type: none;
+			background: var(--color-meniu);
+			cursor: pointer;
+			a {
+
+				text-decoration: none;
+                color: var(--culoare_border);
+                display: block;
+                font-weight: bold;
+                min-height: $inaltime-meniu;
+                max-height: 3*$inaltime_meniu;
+                line-height: $inaltime_meniu/2;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+			}
+			div {
+				text-decoration: none;
+                color: var(--culoare_border);
+                display: block;
+                font-weight: bold;
+                min-height: $inaltime-meniu;
+                max-height: 3*$inaltime_meniu;
+                line-height: $inaltime_meniu/2;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+			}
+		}
+	}
+	height: $inaltime-meniu;
+	width: 100%;
+	top: 0;
+	padding: 0;
+	background: var(--color-meniu);
+	z-index: 10;
+	position: sticky;
+	ul {
+		padding: 0;
+		margin: 0;
+	}
+	li {
+		padding: 0;
+		margin: 0;
+	}
+}
+
+
+
+#hamburger {
+	display: none;
+	height: $inaltime-meniu;
+	img {
+		height: 100%;
+		width: auto;
+	}
+}
+#ch-menu {
+	display: none;
+} 
+
+
+@keyframes aparitie_meniu {
+	0% {
+		transform: scaleY(0);
+	}
+	100% {
+		transform: scaleY(1);
+	}
+}
+
+@keyframes border_trans {
+	0% {
+		transform: scaleY(0);
+		border: 3px solid transparent;
+	}
+
+	50% {
+		transform:scaleY(0.5);
+		border-width: 3px;
+		border-style: solid;
+		-webkit-border-image: 
+		-webkit-gradient(linear, 0 0, 0 100%, from(black), to(rgba(0, 0, 0, 0))) 1 100%;
+		-webkit-border-image: 
+		-webkit-linear-gradient(black, rgba(0, 0, 0, 0)) 1 100%;
+		-moz-border-image:
+		-moz-linear-gradient(black, rgba(0, 0, 0, 0)) 1 100%;    
+		-o-border-image:
+		-o-linear-gradient(black, rgba(0, 0, 0, 0)) 1 100%;
+		border-image:
+		linear-gradient(to bottom, black, rgba(0, 0, 0, 0)) 1 100%;
+	}
+
+	100% {
+		transform: scaleY(1);
+		
+		border-width: 3px;
+		border-style: solid;
+		-webkit-border-image: 
+		-webkit-gradient(linear, 0 0, 0 100%, from(black), to(rgba(0, 0, 0, 0))) 1 100%;
+		-webkit-border-image: 
+		-webkit-linear-gradient(black, rgba(0, 0, 0, 0)) 1 100%;
+		-moz-border-image:
+		-moz-linear-gradient(black, rgba(0, 0, 0, 0)) 1 100%;    
+		-o-border-image:
+		-o-linear-gradient(black, rgba(0, 0, 0, 0)) 1 100%;
+		border-image:
+		linear-gradient(to bottom, black, rgba(0, 0, 0, 0)) 1 100%;
+	}
+}
+
+
+

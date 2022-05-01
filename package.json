@@ -1,0 +1,43 @@
+{
+  "name": "ansamblu_rezidential",
+  "version": "1.0.0",
+  "description": "Site de prezentare pentru ansamblu rezidential MB",
+  "main": "index.js",
+  "dependencies": {
+    "child_process": "^1.0.2",
+    "crypto": "^1.0.1",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "express-session": "^1.17.2",
+    "formidable": "^1.2.2",
+    "nodemailer": "^6.6.2",
+    "path": "^0.12.7",
+    "pg": "^8.6.0",
+    "request": "^2.88.2",
+    "sharp": "^0.28.2",
+    "xml-js": "^1.6.11"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "apartament",
+    "apartamente",
+    "locuința",
+    "casa",
+    "case",
+    "duplex",
+    "duplexuri",
+    "bloc",
+    "blocuri",
+    "locuințe",
+    "curte",
+    "garsoniera",
+    "garsoniere",
+    "ansamlu",
+    "rezidential"
+  ],
+  "author": "Birsan Mihai",
+  "license": "ISC"
+}

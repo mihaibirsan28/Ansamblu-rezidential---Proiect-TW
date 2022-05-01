@@ -1,0 +1,28 @@
+.ifr {
+    display: flex;
+  }
+  
+  .tablouri-iframe a {
+    text-decoration: none;
+    width: 100px;
+    height: 50px;
+    display: flex;
+    flex-direction: column; 
+    border: 1px solid var(--color_extra);
+    border-style: double;
+    border-width: 5px;
+    border-left: none;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background:var(--color-meniu);
+    transition: all 0.5s linear;
+    text-align: center;
+    padding: 1px;
+  }
+  
+  .tablouri-iframe a:hover {
+    width: 150px;
+    height: 50px;
+    background: var(--color_text);
+  }
+  

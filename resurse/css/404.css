@@ -1,0 +1,58 @@
+
+main.e404 img{
+    width: 98%;
+    padding-bottom: 2rem;
+}
+main.e404{
+    display: grid;
+    grid-auto-columns: 1fr;
+    grid-template-areas: "imagine titlu"
+                         "imagine info"
+                         "imagine buton";
+    padding: 4%;
+}
+main.e404 input{
+font-size: 1rem;
+}
+#imagine{
+    grid-area: imagine;
+    height: 20rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#titlu{
+    grid-area: titlu;
+    font-size: 2rem;
+    padding-bottom: 3rem;
+    text-align: center;
+}
+#info{
+    grid-area: info;
+    font-size: 1.3rem;
+    text-align: center;
+    padding-bottom: 1rem;
+}
+#buton{
+    grid-area: buton;
+    font-weight: bold;
+    border-radius: 3px;
+    /* font-family: 'Courier New', Courier, monospace; */
+    /* color: var(--culoare_curenta);
+    background: var(--color-meniu); */
+    border: none;
+    text-align: center;
+}
+/* 
+#buton:hover {
+    background: var(--gri-deschis);
+} */
+
+@media screen and (max-width: 500px) {
+    main.e404{
+        display: block;
+    }
+    main.e404 img{
+        padding-top: 1rem;
+    }
+}

@@ -1,0 +1,61 @@
+html{
+    font-size:14px;
+}
+
+#grid-index{
+    display:grid; 
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-areas:"info1 info1 info1"
+                        "info1 info1 info1"
+                        "info2 info3 info3"
+                        "info2 info4 info4"
+                        "info5 info6 info7"
+                        "info8 info8 info8";
+    padding:4%;
+    grid-gap:2rem;
+}
+
+p.intro{
+    text-align: left;
+    text-align-last: left;
+}
+
+.intro-oferte div{
+    border:1px solid grey;
+    width:5rem;
+    margin-right:2rem;
+    line-height:50px;
+    font-family: 'Dancing Script', cursive;
+    font-size:1.3rem;
+}
+
+iframe{
+    max-width:700px;
+    width:70%;
+}
+div.tablouri-iframe {
+    width: 6rem;
+}
+
+div.tablouri-iframe a{
+    width: 6rem;
+}
+
+div.hide {
+    font-size: 0;
+}
+
+div.tabel-mic {
+    overflow: auto;
+}
+
+.button {
+    font-size: 14px;
+}
+
+
+/*
+#container-video{
+    display: none;
+}
+*/

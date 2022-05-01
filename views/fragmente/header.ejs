@@ -1,0 +1,81 @@
+<header >
+    <h1 id="titlu"><i class="far fa-building"></i><span>Ansamblul rezidențial MB</span><i class="far fa-building"></i></h1>
+    <div id="schimbare-tema">
+        <span class="far fa-sun" id="light"></span>
+        <span class="fas fa-cloud-moon" id="dark"></span>
+    </div>
+    <div id="login">
+        <% if (!locals.utilizator) { %>
+        
+            <p>Va rugam sa va logati: <br/>
+            <form id="login" method="post" action="/login">
+                
+                <label>
+                    Username: <input type="text" name="username" value="">
+                </label><br>
+                <label>
+                    Parola: <input type="password" name="parola" value="">
+                </label><br>
+                
+                <input type="submit" value="Login">
+            </form>
+            <% } %>
+    </div>
+    
+</header> 
+    <nav >
+        <label id="hamburger" for="ch-menu">
+            <img src="resurse/images/Hamburger_icon_alb.png" alt="menu">
+        </label>
+        <input id="ch-menu" type="checkbox">
+        <ul class="meniu">
+            <li><a href="/index"><div Acasa><span class="fas fa-home"></span><div class="hide">Acasa</div></div></a>
+                <ul>        
+                    <li><a href="#info1">Prezentare</a> </li>
+                    <li><a href="#info2">Tabel</a> </li>
+                    <li><a href="#info3">Calendar</a></li>
+                    <li><a href="#info4">Anunturi</a> </li>
+                    <li><a href="#info5">Utilizatori</a> </li>
+                    <li><a href="#info6">Statistici</a> </li>
+                    <li><a href="#info7">Date</a> </li>
+                    <li><a href="#info8">Despre MB</a></li>
+                </ul>
+            </li>
+            <li><div>Despre</div>
+                <ul>
+                    <li><a href="despre_noi"  title="Despre ansamblu rezidential MB">Ansamblul</a></li>
+                    <li><a href="#Transportul">Transport</a></li>
+                    <li><a href="#Puncte_de_interes">Interes</a></li>
+                    <li><a href="#Materiale">Materiale</a></li>
+                    <li><a href="#Promotii_apartamente">Promoții</a></li>
+                    <li><a href="#Plata">Plata</a></li>
+                    <li><a href="#faq">Intrebări</a></li>
+                </ul>
+            </li>
+            <li><a href="/produse">Locuinte</a>
+                <ul id="prod">
+                    <% for( let categ of locals.categorii) { %>
+                        <li><a href="/produse?tip=<%- categ %>" class="maj"><%- categ %></a></li>
+                    <% } %>
+                </ul>
+            </li>
+            <li><div>Dezvoltator</div></li>
+            <% if (!locals.utilizator) { %>
+                <li><a href="/inregistrare">Inregistrare</a></li>
+            <% }  %>
+            <li><div>Contact</div></li>
+            <li><a href="/cos-virtual">Cos virtual</a></li>
+            <% if (locals.utilizator && locals.utilizator.rol=="admin") { %> 
+                <li><a href="/useri">Utilizatori</a></li>
+                <% } %>
+            <% if (locals.utilizator) { %>
+                <!-- <li><a href="/useri">Utilizatori</a></li> -->
+                <li><div>Logat:<%- locals.utilizator.username %></div>
+                    <ul>
+                        <li><a href="/logout">Logout</a></li>
+                    </ul>
+                </li>
+
+            <% }  %>
+        </ul>
+    </nav>

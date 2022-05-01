@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html  lang="ro">
+    <head>
+        <meta name="description" content="Ansamblul rezidential MB urmatoarele locuinte noi construite:apartamente, garsoniere si duplexuri.">
+        <meta name="keywords" content="casa, apartamente, duplexuri, garsoniere, Ansamblu rezidential, MB">
+        
+        <link rel="stylesheet" href="/resurse/css/locuinte.css" type="text/css" />
+		<link rel="stylesheet" href="/resurse/css/inregistrare.css" type="text/css" />
+        <title>Ansamblu rezidential MB</title>
+        <%- include("../fragmente/head") %>     
+        <script type="text/javascript" src=/resurse/js/inregistrare.js></script>
+    </head>
+    <body>
+    <%- include("../fragmente/header") %>
+
+    <main>
+    <div class="afisaj">
+        <h1>Inregistrare utilizator</h1>
+        
+		<% if (locals.err !="") { %>
+		<form id="form_inreg"  method="post" class="date"  action="/inreg" id="inregistrare" enctype="multipart/form-data">
+			<p>
+                <label>
+					Nume: <input id="id-nume" type="text" name="nume" value="" required pattern="^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$">
+					<!-- <input class="inptr" type="text" name="nume" value="Gogulescu" required> -->
+				</label>
+			</p>
+			<p>
+			    <label>
+                    Prenume: <input id="id-prenume" type="text" name="prenume" value="" required pattern="^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$">
+                </label>
+			</p>
+			<p>
+				<label>
+                    Username: <input id="id-user" type="text" name="username"  value="" required pattern="^[A-Za-z0-9]+$">
+                </label>
+			</p>
+			<p>
+				<label>
+					Parola: <input id="id-parl" type="password" name="parola" value="" required>
+				</label>
+			</p>
+			<p>
+				<label>
+					Reintroduceti parola: <input id="id-rparl" type="password" name="rparola" value="" required >
+				</label>
+			</p>
+			<p>
+				<label>
+					Email: <input id="id-email" type="text" name="email" value="@gmail.com"  size="50" required pattern="^([\w]*[\w\.]*(?!\.)@gmail.com)"> 
+				</label>
+			</p>
+			<p>
+				<label>
+					 Telefon: <input id="id-telefon" type="text" name="telefon" value="" pattern="^(\+|)?(07[0-9]{8})"></select>
+				</label>
+			</p>
+			<p>
+				<label>
+					Poza: <input id="id-poza" type="file" name="poza" value="images/utilizator_default.jpg">
+				</label>			
+			</p>
+			<p>		
+				<input type="submit" value="Trimite">
+				<input type="reset" value="Reseteaza">
+			</p>
+		</form>
+	<% } %>
+	<% if(locals.raspuns) { %>
+	<%- locals.raspuns+"<br/>"%>
+	<% } %>
+	<% if(locals.err) { %>
+	<%- locals.err %>
+	<% } %>
+    </div>
+</main>
+
+<footer>
+    <%- include("../fragmente/footer") %>
+</footer>
+
+</body>
+</html>

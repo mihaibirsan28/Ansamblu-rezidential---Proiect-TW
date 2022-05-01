@@ -1,0 +1,43 @@
+#hamburger {
+	display: block;
+}
+ul.meniu {
+	display: none;
+}
+#ch-menu {
+	&:checked+ul.meniu {
+		transform: scaleY(0);
+		animation-name: meniu-mic;
+		animation-duration: 0.6s;
+		animation-direction: initial;
+		animation-fill-mode: forwards;
+		animation-timing-function: linear;
+		transform-origin: left;
+		display: block;
+	}
+}
+nav {
+	
+	ul.meniu {
+		li {
+			width: 100%;
+		}
+		>li {
+			ul {
+				
+				position: absolute;
+				width: 100%;
+				z-index: 20;
+			}
+		}
+	}
+}
+
+@keyframes meniu-mic {
+	0% {
+		transform: scaleX(0);
+	}
+	100% {
+		transform: scaleX(1);
+	}
+}

@@ -1,0 +1,29 @@
+video {
+    height: 225px;
+    width: 400px;
+    box-shadow: 5px 10px 18px var(--color_border);
+}
+
+video::cue {
+  
+  /* top: 0%;
+  background-position: top; */
+  /* background-origin: inherit; */
+  /* background-origin: initial; */
+  /* background-origin: revert; */
+  /* background-origin: unset;
+  background-repeat: no-repeat; */
+  /* text-align: left; */
+  position: top 0%;
+  background-position: top 0%;
+  background-color:white;
+  color: var(--color_border);
+  white-space: normal;
+  background-clip: border-box;
+  /* text-shadow: 1px 1px 2px var(--color_border); */
+  /* background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent; */
+  font-size: 1rem;
+}
+

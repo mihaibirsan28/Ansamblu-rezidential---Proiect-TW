@@ -1,0 +1,191 @@
+main{
+    --padd-main:1rem;
+    padding-left:var(--padd-main);
+    padding-right:var(--padd-main);
+}
+
+.grid-locuinte{
+    display:grid;
+    grid-template-columns: 1fr 1fr ;
+    grid-gap:1rem;
+}
+.grid-locuinte .produs{
+    border-radius: 2rem;
+    box-shadow: 0px 0px 0.8rem 0.3rem grey;
+    overflow: hidden;
+}
+
+.grid-locuinte .produs h3{
+    background-color: var(--color-meniu);
+    text-align: center;
+    margin-top: 0;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.grid-locuinte .produs h3 a{
+    color:black;
+}
+.grid-locuinte .produs h3 a:hover{
+    color:blue;
+}
+ .grid-locuinte .produs figure{
+    text-align: center;
+} 
+
+.info-locuinta {
+    display: flex;
+    flex-direction: row;
+    
+} 
+
+.grid-locuinte .produs figure img{
+    border:1px solid grey
+}
+/* .grid-locuinte .produs .info-prod{
+    display:flex;
+    background-color: var(--cl-marcare);
+}
+.grid-locuinte .produs .info-prod p{
+    width:30%;
+    text-align:center;
+    font-weight:bold;
+} */
+ 
+.grid-locuinte .produs p.categorie{
+
+    /* text-align:center; */
+    font-weight:bold;
+} 
+.grid-locuinte .produs p.suprafata{
+
+    /* text-align:center; */
+    font-weight:bold;
+} 
+.grid-locuinte .produs p.pret{
+
+    /* text-align:center; */
+    font-weight:bold;
+} 
+.grid-locuinte .produs p.mobilat{
+
+    /* text-align:center; */
+    font-weight:bold;
+} 
+.grid-locuinte .produs p.data{
+
+    /* text-align:center; */
+    font-weight:bold;
+} 
+.grid-locuinte .produs p.bucatarie{
+
+    /* text-align:center; */
+    font-weight:bold;
+} 
+.grid-locuinte .produs p.stadiu_cosntructie{
+
+    /* text-align:center; */
+    font-weight:bold;
+} 
+.grid-locuinte .produs p.descriere{
+
+    /* text-align:center; */
+    font-weight:bold;
+} 
+
+.info-locuinta1{
+    /* background-color: var(--cl-marcare); */
+    width: 50%;
+    padding:0.2rem;
+    /* box-shadow: 0px 0px 0.5rem 0.15rem grey;  */
+
+}
+.info-locuinta2{
+    /* background-color: var(--cl-marcare); */
+    width: 50%;
+    padding:0.2rem;
+     /* box-shadow: 0px 0px 0.5rem 0.15rem grey;  */
+}
+
+
+.produs{
+    position: relative;
+}
+/* .selecteaza-cos{
+    display: inline-block;
+    /* background-color: var(--culoare-mov); 
+    position:absolute;
+    bottom:0.5rem;
+    right:0.5rem;
+    border-radius: 0.5rem;
+    text-align: center;
+    padding:0.3rem;
+    border:1px solid transparent;
+}
+
+.selecteaza-cos:hover{
+    /* background-color: var(--cl-marcare); 
+    
+    border:1px solid  var(--culoare-mov);
+} */
+
+
+span.exemplu{
+    display: block;
+    font-style: italic;
+    font-size: 0.85rem;
+}
+label.radio label.litera{
+    text-transform: capitalize;
+}
+
+input#inp-text{
+    border: 2px solid var(--color-meniu); 
+    border-radius: 2rem;
+    transition: border 0.5s linear;
+    padding: 2px;
+    text-align: center;
+}
+input#inp-text:focus{
+    outline: none;
+    border: 2px solid var(--color-meniu);
+}
+
+
+p.butoane{
+    display: flex;
+    height: 50%;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+
+.buton{
+    position: sticky;
+    font-weight: bold;
+    color: var(--culoare_curenta);
+    background: var(--color-meniu);
+    border: none;
+    transition: all 300ms linear;
+    text-align: center;
+    border-radius: 1rem;
+    padding-right: 0.2rem;
+    max-width: 20rem;
+    cursor: pointer;
+    text-decoration: none;
+    padding: 0.6rem;
+}
+.buton:hover{
+    background: var(--gri-deschis);
+}
+
+label.inptr{
+    margin-bottom: 2rem;
+}
+
+section.inputuri{
+    padding: 0;
+    display: grid;
+    border-image: linear-gradient(45deg, var(--culoare_high), var(--culoare_meniu)) 1;
+    grid-template-columns: 2fr 1fr;
+}

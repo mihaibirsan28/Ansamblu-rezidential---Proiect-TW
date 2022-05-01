@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html  lang="ro">
+    <head>
+        
+        <title>Ansamblul rezidential MB - Eroare 403 Forbidden</title>
+        <link rel="stylesheet" href="/resurse/css/404.css" type="text/css"/>
+        <%- include("../fragmente/head") %>     
+    </head>
+    <body>
+    <%- include("../fragmente/header") %>
+
+    <main class="e404">
+        <div id="imagine">
+            <img src="resurse/images/complex-residence.jpg" alt="complex"  style="width: 94%;">
+        </div>
+        <section>
+            <h2 id="titlu">403 - nu aveti acces la aceasta pagina.</h2>
+            <!-- <p id="info">Motivul poate fi adresa URL incorectă</p> -->
+            <form action="/index" id="buton">
+                <input type="submit" value="Pagina principală" class="buton"/>
+            </form>
+        </section>
+    </main>
+
+    
+    <%- include("../fragmente/footer") %>
+    </body>
+</html>

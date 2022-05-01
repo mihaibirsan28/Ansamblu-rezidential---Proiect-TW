@@ -1,0 +1,241 @@
+div.galerie-grid {
+  display: grid;
+  border: 2px black;
+  grid-template-columns: repeat(3, 400px);
+  grid-template-rows: repeat(3, 300px);
+  grid-row-gap: 0;
+  grid-column-gap: 0;
+  grid-gap: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  animation-name: galerie;
+  transform-origin: center center;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-duration: 21s;
+}
+div.galerie-grid:hover {
+  animation-play-state: paused;
+}
+
+div.galerie-grid figure:nth-of-type(10) {
+  display: none;
+}
+
+div.galerie-grid figure:nth-of-type(11) {
+  display: none;
+}
+
+div.galerie-grid figure:nth-of-type(12) {
+  display: none;
+}
+
+div.galerie-grid figure:nth-of-type(13) {
+  display: none;
+}
+
+div.galerie-grid figure:nth-of-type(14) {
+  display: none;
+}
+
+div.galerie-grid figure:nth-of-type(15) {
+  display: none;
+}
+
+div.galerie-grid figure:nth-of-type(16) {
+  display: none;
+}
+
+div.galerie-grid figure:nth-of-type(17) {
+  display: none;
+}
+
+div.galerie-grid figure:nth-of-type(18) {
+  display: none;
+}
+
+.galerie-a {
+  width: 400px;
+  height: 300px;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 5rem;
+  border: 3px inset black;
+}
+
+div.galerie-grid img {
+  width: 100%;
+}
+
+.galerie-a figcaption {
+  position: absolute;
+  bottom: 0;
+  background-color: lightblue;
+  width: 100%;
+  text-align: center;
+}
+
+.galerie-a figure {
+  position: relative;
+  margin: 0;
+  overflow: hidden;
+  width: 400px;
+  height: 300px;
+}
+
+/*cum calculam timpii:
+- avem 7 poze; vrem pentru fiecare un timp de afisare de 1.5 secunde si o trecere spre urmatoarea poza de 1.5 secunde
+- rezulta 3 secunde pentru fiecare imagine
+- 7imagini * 3secunde =21 secunde in total pentru animatie (animation-duration) si fiecare poza cu un delay = 3* numarul de ordine
+- momentul in care trebuie ascunsa poza si pusa in spatele celorlalte (ca sa isi astepte randul pentru noua animatie:
+il calculam cu formula  timp_afisare(normal+trecerea la urmatoarea poza)/timp_total*100 = 3/21*100 =  14.285714(aproximativ)
+100%..... 21s
+x%........3s
+
+- calculam 100-14.285714=85.714286 - la acest moment imaginea trebuie sa se vada in spatele imaginii care se afiseaza in mod curent (ca sa se vada si cat timp se realizeaza efectul de schimbare a imaginii
+*/
+@keyframes galerie {
+  0% {
+    transform: scale(1);
+    top: 0;
+    left: 0;
+  }
+  8.5% {
+    transform: scale(1);
+    top: 0;
+    left: 0;
+  }
+  11% {
+    transform: scale(0.3333);
+    top: -300px;
+    left: -400px;
+  }
+  13.5% {
+    transform: scale(1);
+    top: 0;
+    left: -800px;
+  }
+  19.5% {
+    transform: scale(1);
+    top: 0;
+    left: -800px;
+  }
+  22% {
+    transform: scale(0.3333);
+    top: -300px;
+    left: -400px;
+  }
+  24.5% {
+    transform: scale(1);
+    top: 0;
+    left: -400px;
+  }
+  30.5% {
+    transform: scale(1);
+    top: 0;
+    left: -400px;
+  }
+  33% {
+    transform: scale(0.3333);
+    top: -300px;
+    left: -400px;
+  }
+  35.5% {
+    transform: scale(1);
+    top: -300px;
+    left: -400px;
+  }
+  41.5% {
+    transform: scale(1);
+    top: -300px;
+    left: -400px;
+  }
+  44% {
+    transform: scale(0.3333);
+    top: -300px;
+    left: -400px;
+  }
+  46.5% {
+    transform: scale(1);
+    top: -300px;
+    left: -800px;
+  }
+  52.5% {
+    transform: scale(1);
+    top: -300px;
+    left: -800px;
+  }
+  55% {
+    transform: scale(0.3333);
+    top: -300px;
+    left: -400px;
+  }
+  57.5% {
+    transform: scale(1);
+    top: -600px;
+    left: -800px;
+  }
+  63.5% {
+    transform: scale(1);
+    top: -600px;
+    left: -800px;
+  }
+  66% {
+    transform: scale(0.3333);
+    top: -300px;
+    left: -400px;
+  }
+  68.5% {
+    transform: scale(1);
+    top: -300px;
+    left: 0;
+  }
+  74.5% {
+    transform: scale(1);
+    top: -300px;
+    left: 0;
+  }
+  77% {
+    transform: scale(0.3333);
+    top: -300px;
+    left: -400px;
+  }
+  79.5% {
+    transform: scale(1);
+    top: -600px;
+    left: -400px;
+  }
+  85.5% {
+    transform: scale(1);
+    top: -600px;
+    left: -400px;
+  }
+  88% {
+    transform: scale(0.3333);
+    top: -300px;
+    left: -400px;
+  }
+  90.5% {
+    transform: scale(1);
+    top: -600px;
+    left: 0;
+  }
+  96.5% {
+    transform: scale(1);
+    top: -600px;
+    left: 0;
+  }
+  100% {
+    transform: scale(0.3333);
+    top: -300px;
+    left: -400px;
+  }
+}
+@media screen and (max-width: 500px) {
+  #sectiune-galerie-animata {
+    display: none;
+  }
+}
+
+/*# sourceMappingURL=galerie-animata.css.map */

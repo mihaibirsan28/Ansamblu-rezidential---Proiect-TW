@@ -1,0 +1,67 @@
+@media screen {
+    
+div.banner{
+    visibility: visible;
+    animation-name: animatie_banner;
+    animation-timing-function: linear;
+    animation-duration: 7.5s;
+    animation-fill-mode: forwards;
+    position: fixed;
+    z-index: 100;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    background-color: var(--color_back);
+    color: var(--color_text);
+    border: 3px solid var(--color_border);
+}
+@keyframes animatie_banner {
+    0%{
+        transform: scaleX(0);
+        transform-origin: left;
+        background-color: var(--color_back);
+        color: var(--color_text);
+        border: 3px solid var(--color_border);
+    }
+    20%{
+        transform: scaleX(0.5);
+        transform-origin: left;
+        background-color: var(--color_border);
+        color: var(--color_text);
+        border: 3px solid var(--color_extra);
+    }
+    40%{
+        transform-origin: left;
+        background-color: var(--color_back);
+        color: var(--color_text);
+        border: 3px solid var(--color_border);
+        transform: scaleX(1);
+    }
+    80%{
+        transform: scaleX(1);
+        transform-origin: right;
+    }
+    90%{
+        transform: scaleX(0.5);
+        transform-origin: right;
+    }
+    100%{
+        transform: scaleX(0);
+        transform-origin: right;
+        visibility: hidden;
+    }
+}
+/*
+body {
+    --color_back:#52AAEB;
+    --color_text:#d3dde7;
+    --color_extra:#6419F5;
+    --color_border:#182AD6;
+    --color_high:#1abc9c;
+    --color-meniu:#3FC7D6;
+}
+
+*/
+
+} 

@@ -1,0 +1,650 @@
+ 
+<!DOCTYPE html>
+<html  lang="ro">
+    <head>
+        <meta name="description" content="Ansamblul rezidential MB urmatoarele locuinte noi construite:apartamente, garsoniere si duplexuri.">
+        <meta name="keywords" content="casa, apartamente, duplexuri, garsoniere, Ansamblu rezidential, MB">
+        
+        <title>Ansamblul rezidential MB</title>
+        <%- include("../fragmente/head") %>     
+        <link href="/resurse/css/locuinte.css" type="text/css" rel="stylesheet" />  
+        <link rel="stylesheet" href="resurse/css/locuinte-1200.css" type="text/css"  media="screen and (max-width:1200px)"/>
+        <link rel="stylesheet" href="resurse/css/locuinte-500.css" type="text/css"  media="screen and (max-width:650px)"/>
+        <link href="/resurse/css/locuinta.css" type="text/css" rel="stylesheet" />   
+        <script type="text/javascript" src="/resurse/js/produse.js"></script>
+    </head>
+    <body>
+    <%- include("../fragmente/header") %>
+
+    <main>
+        <section class="inputuri">
+            <div class="inpt">
+                <label class="inptr">Cauta locuinta dorita:<span class="exemplu"><input type="text" id="inp-text">(de ex: apartament cu 2 camere, apartament cu 3 camere, duplex, garsoniera, apartament cu 4 camere)</span> </label><br>
+                <label class="inptr"> Pret maxim: <input type="range" id="inp-pret" value="0" min="30000"  max="160000"></label><br>
+                <!-- <label> Stadiu constructie: <input type="radio" id="inp-constructie" value="toate"></label> -->
+                <!-- <label > Suprafata maxima: <input type="number" id="inp-suprafata" value="160"></label><br> -->
+
+                <!-- <label class="radio-inptr">Tipul locuintei dorite:
+                    <% for ( let tipprod of locals.tipLoc) { %>
+                        <br><input type="checkbox" value="<%- tipprod.tip %>" name="tip-locuinta"><label class="litera"><%- tipprod.tip %></label>
+                        <span class="checkmark"></span>    
+                    <% } %>
+                    <br><input type="checkbox" value="toate" name="tip-locuinta" checked><label>Orice tip de locuinta</label>
+                </label><br> -->
+
+                <label class="inptr"> Stadiu constructie locuinta:
+                    <span class="exemplu">(Pentru a selecta mai multe optiuni trebuie sa apasati tasta Ctrl)</span><br>
+                    <select id="inp-stadiu" multiple>
+                        <% for( let stadiucons of locals.stadiuC) { %>
+                            <option type="checkbox" value="<%- stadiucons.stadiu %>" name="stadiu"><label><%- stadiucons.stadiu %></label></option>
+                        <%  } %>
+                    </select>
+                </label><br>
+
+                <label class="inptr">Selectati suprafata maxima dorita pentru locuinta dumneavoastra:
+                    <input type="radio" value="45" name="suprafata"><label>45 mp</label>
+                    <input type="radio" value="60" name="suprafata"><label>60 mp</label>
+                    <input type="radio" value="75" name="suprafata"><label>75 mp</label>
+                    <input type="radio" value="100" name="suprafata"><label>100 mp</label>
+                    <input type="radio" value="115" name="suprafata"><label>115 mp</label>
+                    <input type="radio" value="140" name="suprafata"><label>140 mp</label>
+                    <input type="radio" value="160" name="suprafata"><label>160 mp</label>
+                </label><br>
+
+                <label class="inptr">Selectati locuintele in functie de bucatarie:
+                    <select id="inp-bucatarie">
+                        <option value="toate">Toate</option>
+                        <option value="true">Bucatarie open-space</option>
+                        <option value="false">Bucatarie individuala</option>
+                    </select>
+                </label><br>
+            </div>
+            
+            <p>
+            <button id="filtrare">Filtreaza</button>
+            <button id="sortCrescNume">Sorteaza crescator dupa nume</button>
+            <button id="sortDescrescNume">Sorteaza descrescator dupa nume</button>
+            <button id="resetare">Reseteaza</button>
+            </p>
+            <p id="p-suma">Apasați Alt+"c" pentru suma preturilor produselor afișate. </p>
+        </section>
+        
+        <section id="locuinte">
+            <h2>Produse</h2>
+            <div class="grid-locuinte">
+                <% for( let prod of locals.produse) { %>
+                    <article class="produs">
+                        <h3 class="nume"><a href="/produs/<%-prod.id %>" ><span class="val-nume"><%- prod.nume%></span></a></h3>
+                        <div class="info-locuinta">
+                            <div class="info-locuinta1">
+                                <figure>
+                                    <a href="/produs/<%-prod.id %>" ><img src="/resurse/images/produse/<%- prod.imagine %>" style="width:100%;height:auto;" alt="[imagine <%- prod.nume %>]" /></a>
+                                </figure>
+                                <p class="suprafata"><i class='fas fa-hammer'></i> Suprafata: <span class="val-suprafata" style="color:blue"><%- prod.suprafata%></span>mp</p>
+                                <p class="pret"><i class='fas fa-money-check-alt'></i> Pret: <span class="val-pret" ><%- prod.pret%></span>€</p>
+                                <p class="mobilat"><i class="fas fa-couch"></i> Camere mobilate: <span class="val-mobilat"><%- prod.mobilat%></span></p>
+                                <p class="data"><i class='far fa-clock'></i> Data terminare locuinta: <span class="val-data"><%- prod.data_terminare_locuinta%></span></p>
+                                <p class="bucatarie"><i class="fas fa-bread-slice"></i><span class="val-bucatarie"><%- prod.bucatarie_open_space%></span></p> 
+                                
+                            </div>
+                            <div class="info-locuinta2">
+                                <p class="categorie"><i class="fas fa-building"></i> Categorie: <span class="val-tip-locuinta"><%- prod.tip_locuinta%></span></p>
+                                <p class="stadiu_cosntructie"><i class="fas fa-wrench"></i> Stadiu constructie: <span class="val-stadiu-constructie"><%- prod.stadiu_constructie%></span></p>
+                                <p class="descriere"><i class="fas fa-pencil-ruler"></i> Descriere: <span class="val-descriere"><%- prod.descriere%></span></p>
+                            </div>
+                        </div>
+                    </article>
+                <% }%>
+            </div>
+        </section>
+       
+    </main>
+
+    <%- include("../fragmente/footer") %>
+    </body>
+</html>
+
+
+----------------------------------------------
+// document.getElementById("inp-pret").value = min;
+        // document.getElementById("inp-text").value = "";
+
+        -----------------------------------------------------
+        ----------------------------------------------------------
+        -----------------------------------------------------------------
+        const express = require('express');
+const fs = require('fs');
+const path = require('path');
+const sharp = require('sharp');
+const {Client} =require('pg');
+const url = require('url');
+const { exec } = require("child_process");
+const ejs=require('ejs');
+const session = require('express-session');
+const formidable = require('formidable');
+const crypto = require('crypto');
+const nodemailer = require("nodemailer");
+const xmljs = require('xml-js');
+const request = require('request');
+
+var app = express();
+ 
+app.set("view engine", "ejs");
+ 
+app.use("/resurse", express.static(__dirname + "/resurse"));
+
+const client = new Client({
+    host: 'localhost',
+    user: 'birsan',
+    password: 'proiect',
+    database: 'locuinte',
+    port: 5432
+})
+client.connect()
+
+app.use(session({
+    secret: 'abcdefg',//folosit de express session pentru criptarea id-ului de sesiune
+    resave: true,
+    saveUninitialized: false
+  }));
+
+function getUtiliz(req){
+	var utiliz;
+	if(req.session){
+		utiliz=req.session.utilizator
+	}
+	else{utiliz=null}
+	return utiliz;
+}
+
+
+setInterval(function(){
+    let comanda= `delete from accesari where now() - data_accesare > interval '10 minutes'`;
+    //console.log(comanda);
+    client.query(comanda, function(err, rez){
+        if(err) console.log(err);
+    });
+},10*60*1000)
+// console.log(utilizator);
+
+
+app.use(function(req,res, next){
+    let comanda_param= `insert into accesari(ip, user_id, pagina) values ($1::text, $2,  $3::text)`;
+    //console.log(comanda);
+    if (req.ip){
+        var id_utiliz=req.session.utilizator?req.session.utilizator.id:null;
+        console.log("id_utiliz", id_utiliz);
+        client.query(comanda_param, [req.ip, id_utiliz, req.url], function(err, rez){
+            if(err) console.log(err);
+        });
+    }
+    next();
+});
+
+async function trimiteMail(username, email){
+	var transp= nodemailer.createTransport({
+		service: "gmail",
+		secure: false,
+		auth:{ 
+			user:"proiectTWMB@gmail.com",
+			pass:"proiecttw"
+		},
+		tls:{
+			rejectUnauthorized:false
+		}
+	});
+	await transp.sendMail({
+		from:"proiectTWMB@gmail.com",
+		to:email,
+		subject: "Salut stimate " + nume+ "!",
+		// text:"Username-ul tau este "+username,
+        text: "Username-ul tau este "+username+"!", //" pe site-ul <a href = 'http://localhost:8088/'>Ansamblu rezidential MB</a>",
+        //text = mesaj,
+        //html = cod,
+        html: "<p>Username-ul tău este "+username+" pe site-ul <a href='http://localhost:8080/'><i><b><u>Ansamblu rezidential MB</u></b></i></a></p>",
+		// html:"<h1>Te-ai înregistrat pe <a href = 'http://localhost:8080/'>Zumbee</a>!</h1><p>Username-ul tau este <i>"+username+"</i></p>",
+	})
+//campuriText.
+}
+
+// async function trimitefactura(username, email,numefis){
+// 	var transp= nodemailer.createTransport({
+// 		service: "gmail",
+// 		secure: false,
+// 		auth:{//date login 
+// 			user:"test.tweb.no@gmail.com",
+// 			pass:"tehniciweb"
+// 		},
+// 		tls:{
+// 			rejectUnauthorized:false
+// 		}
+// 	});
+// 	//genereaza html
+// 	await transp.sendMail({
+// 		from:"test.tweb.node@gmail.com",
+// 		to:email,
+// 		subject:"Factură",
+// 		text:"Stimate "+username+", aveți atașată factura",
+// 		html:"<h1>Salut!</h1><p>Stimate "+username+", aveți atașată factura</p>",
+//         attachments: [
+//             {   // utf-8 string as an attachment
+//                 filename: 'factura.pdf',
+//                 content: fs.readFileSync(numefis)
+//             }]
+// 	})
+// 	console.log("trimis mail");
+// }
+
+
+
+function verificaImagini(){
+	var textFisier=fs.readFileSync("resurse/json/galerie.json") //citeste tot fisierul
+	var jsi=JSON.parse(textFisier); //am transformat in obiect
+
+	var caleGalerie=jsi.cale_galerie;
+    let vectImagini=[]
+	for (let im of jsi.imagini){
+		var imVeche= path.join(caleGalerie, im.cale_relativa);//obtin calea completa (im.fisier are doar numele fisierului din folderul caleGalerie)
+		var ext = path.extname(im.cale_relativa);//obtin extensia
+		var numeFisier =path.basename(im.cale_relativa,ext)//obtin numele fara extensie
+        let imMedie=path.join(caleGalerie+"/medie/", numeFisier+"-medie"+".webp");
+		let imNoua=path.join(caleGalerie+"/mic/", numeFisier+"-mic"+".webp");//creez cale apentru imaginea noua; prin extensia wbp stabilesc si tipul ei
+		
+        //console.log(imNoua);
+        
+        let data = new Date();
+        let ora = data.getHours();
+        if ((ora >= 5 && ora < 12 && im.timp=="dimineata" && vectImagini.length < 6) ||
+        (ora >= 12 && ora < 20 && im.timp=="zi" && vectImagini.length < 6) ||
+        ((ora >= 20 || ora < 5) && im.timp=="noapte" && vectImagini.length < 6))
+        {
+            vectImagini.push({mare:imVeche, medie:imMedie, mic:imNoua, descriere:im.descriere}); //adauga in vector un element
+		if (!fs.existsSync(imMedie))//daca nu exista imaginea, mai jos o voi crea
+		sharp(imVeche)
+		  .resize(700) //daca dau doar width(primul param) atunci height-ul e proportional
+		  .toFile(imMedie, function(err) {
+              if(err)
+			    console.log("eroare conversie",imVeche, "->", imMedie, err);
+		  });
+		if (!fs.existsSync(imNoua))//daca nu exista imaginea, mai jos o voi crea
+		sharp(imVeche)
+		  .resize(300) //daca dau doar width(primul param) atunci height-ul e proportional
+		  .toFile(imNoua, function(err) {
+              if(err)
+			    console.log("eroare conversie",imVeche, "->", imNoua, err);
+		  });
+
+          
+        }  
+	}
+    // [ {mare:cale_img_mare, mic:cale_img_mica, descriere:text}, {mare:cale_img_mare, mic:cale_img_mica, descriere:text}, {mare:cale_img_mare, mic:cale_img_mica, descriere:text}  ]
+    return vectImagini;
+}
+
+function verificaImagini2() {
+    var textFisier = fs.readFileSync("resurse/json/galerie.json") //citeste tot fisierul
+    var jsi = JSON.parse(textFisier); //am transformat in obiect
+
+    var caleGalerie = jsi.cale_galerie;
+    let vectImagini = []
+    for (let im of jsi.imagini) {
+        var imVeche = path.join(caleGalerie, im.cale_relativa);//obtin claea completa (im.fisier are doar numele fisierului din folderul caleGalerie)
+        var ext = path.extname(im.cale_relativa);//obtin extensia
+        var numeFisier = path.basename(im.cale_relativa, ext)//obtin numele fara extensie
+        let imNoua = path.join(caleGalerie + "/mic/", numeFisier + "-mic" + ".webp");//creez cale apentru imaginea noua; prin extensia wbp stabilesc si tipul ei
+        if (im.animata == true) 
+        {
+            vectImagini.push({ mare: imVeche, mic: imNoua, descriere: im.descriere }); //adauga in vector un element
+            if (!fs.existsSync(imNoua))//daca nu exista imaginea, mai jos o voi crea
+                sharp(imVeche)
+                    .resize(300) //daca dau doar width(primul param) atunci height-ul e proportional
+                    .toFile(imNoua, function (err) {
+                        if (err)
+                            console.log("eroare conversie", imVeche, "->", imNoua, err);
+                    });
+        }
+    }
+    console.log(vectImagini.length);
+    return vectImagini;
+}
+
+app.get(["/", "/index"], function (req, res) {//ca sa pot accesa pagina principala si cu localhost:8080 si cu localhost:8080/index
+    
+    res.render("pagini/index", { imagini: verificaImagini(), ip: req.ip, imagini2: verificaImagini2(), utilizator: req.session.utilizator});
+});
+
+
+ 
+app.get(["/", "/index"], function (req, res) {
+    res.render("pagini/index", { imagini1: verificaImagini1(), ip: req.ip, imagini2: verificaImagini2()});
+});
+
+// app.post("/login", function(req,res){
+//     let formular= formidable.IncomingForm();
+//     formular.parse(req, function(err, campuriText){
+//         //console.log(campuriText);
+//         let parolaCriptata= crypto.scryptSync(campuriText.parola, parolaServer, 32).toString('ascii');
+//         //let comanda= `select username, nume,email, culoare_chat, rol from utilizatori where username= '${campuriText.username}' and parola='${parolaCriptata}'`;
+//         let comanda_param= `select id,username,nume, email, culoare_chat, rol from utilizatori where username= $1::text and parola=$2::text`;
+//         //console.log(comanda);
+        
+//         client.query(comanda_param, [campuriText.username, parolaCriptata], function(err, rez){
+//         //client.query(comanda, function(err, rez){
+//             if (!err){
+//                 //console.log(rez);
+//                 if (rez.rows.length == 1){
+//                     req.session.utilizator={
+//                         id:rez.rows[0].id,
+//                         username:rez.rows[0].username,
+//                         nume:rez.rows[0].nume,
+//                         email:rez.rows[0].email,
+//                         telefon:rez.rows[0].telefon,
+// 						rol:rez.rows[0].rol
+//                     }
+//                 }
+                
+//             }
+//             res.redirect("/index");
+//         });
+//     }); 
+// })
+
+
+
+app.get("*/galerie-animata.css",function(req, res){
+    //citesc scss-ul cs string
+    res.setHeader("Content-Type","text/css");//pregatesc raspunsul de tip css
+    let sirScss=fs.readFileSync("./resurse/scss/galerie-animata.scss").toString("utf-8");
+    nr_imagini=[2,3,4]
+    let nr_imagini_random = nr_imagini[Math.floor(Math.random()*nr_imagini.length)];
+    console.log(nr_imagini_random);//iau un numar din cele 3 aleatoriu
+    let rezScss=ejs.render(sirScss,{nr_img:nr_imagini_random});// transmit numarul catre scss si obtin sirul cu scss-ul compilat
+    fs.writeFileSync("./temp/galerie-animata.scss",rezScss);//scriu scss-ul intr-un fisier temporar
+    exec("sass ./temp/galerie-animata.scss ./temp/galerie-animata.css", (error, stdout, stderr) => {//execut comanda sass (asa cum am executa in cmd sau PowerShell)
+        if (error) {
+            console.log(`error: ${error.message}`);
+            res.end();//termin transmisiunea in caz de eroare
+            return;
+        }
+        if (stderr) {
+            console.log(`stderr: ${stderr}`);
+            res.end();
+            return;
+        }
+        //totul a fost bine, trimit fisierul rezultat din compilarea scss
+        res.sendFile(path.join(__dirname,"temp/galerie-animata.css"));
+    });
+});
+
+app.get(["*/galerie.json"], function (req, res){
+    res.render("pagini/403");
+});
+
+
+
+app.get("/produse",function(req, res){
+    //console.log("Url:",req.url);
+    //console.log("Query:", req.query.tip);
+    // conditie_booleana? val_true : val_false
+    let conditie= req.query.tip ?  " and tip_locuinta='"+req.query.tip+"'" : "";//daca am parametrul tip in cale (tip=cofetarie, de exemplu) adaug conditia pentru a selecta doar produsele de acel tip
+    //console.log("select nume, descriere, tip_locuinta, stadiu_constructie, pret, suprafata, data_terminare_locuinta, etaj, mobilat, bucatarie_open_space"+conditie);
+    client.query("select id, nume, descriere, imagine, tip_locuinta, stadiu_constructie, pret, suprafata, data_terminare_locuinta, etaj, mobilat, bucatarie_open_space from locuinte where 1=1"+conditie, function(err,rez){
+        client.query("select unnest(enum_range( null::tipuri_locuinta)) as tip", function(err,rezTip){//selectez toate valorile posibile din enum-ul categ_prajitura
+            client.query("select unnest(enum_range( null::stadiu_constructie_loc)) as stadiu", function(err,rezStd){
+                res.render("pagini/produse", {produse:rez.rows, tipLoc:rezTip.rows, stadiuC:rezStd.rows, utilizator: req.session.utilizator});//obiectul {a:10,b:20} poarta numele locals in ejs  (locals["a"] sau locals.a)
+            })
+        });
+    });
+});
+ 
+
+function get_categorii(){
+    client.query("select unnest(enum_range( null::tipuri_locuinta)) as categorie", function(err,rezTip_Prod){
+            app.locals.categorii = [];
+            for(let i = 0; i < rezTip_Prod.rows.length; i++){
+                app.locals.categorii.push(rezTip_Prod.rows[i]["categorie"]);
+            }
+    });
+}
+
+app.get("/produs/:id_locuinta",function(req, res){
+   
+    const rezultat= client.query("select * from locuinte where id="+req.params.id_locuinta, function(err,rez){
+        res.render("pagini/produs", {prod:rez.rows[0], utilizator: req.session.utilizator});
+    });
+});
+
+let parolaServer="tehniciweb";
+app.post("/inreg",function(req, res){ 
+    //console.log("primit date");
+    var username;
+    let formular= formidable.IncomingForm();
+	//nr ordine: 4
+    formular.parse(req, function(err, campuriText, campuriFisier){
+        //console.log(campuriText);
+		eroare ="";
+		if(campuriText.username=="" || !campuriText.username.match("^[A-Za-z0-9]+$")){
+			eroare+="Username gresit. ";
+		}
+        if(campuriText.nume=="" || !campuriText.nume.match("^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$")){
+			eroare+="Nume gresit. ";
+		}
+        if(campuriText.prenume=="" || !campuriText.prenume.match("^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$")){
+			eroare+="Prenume gresit. ";
+		}
+        if(campuriText.email=="" || campuriText.email.match("^([\w]*[\w\.]*(?!\.)@gmail.com)")){
+			eroare+="Email gresit. ";
+		}
+        // if(campuriText.telefon.match("^(\+|)?(07[0-9]{8})")){
+		// 	eroare+="Numar de telefon gresit gresit. ";
+		// }
+
+		if(!eroare){
+			let parolaCriptata= crypto.scryptSync(campuriText.parola, parolaServer, 32).toString('ascii');
+			let comanda= `insert into utilizatori (username, nume, prenume, parola, email, telefon, imagine_profil) values ($1::text, $2::text, $3::text, $4::text, $5::text, $6::text, $7::text)`;
+			//console.log(comanda);
+			client.query(comanda, [campuriText.username, campuriText.nume, campuriText.prenume, parolaCriptata, campuriText.email, campuriText.telefon, campuriText.imagine_profil],function(err, rez){
+				if (err){
+					console.log(err);
+					res.render("pagini/inregistrare",{err:"Eroare baza date! Reveniti mai tarziu", raspuns:"Datele nu au fost introduse."});
+				}
+				else{
+					res.render("pagini/inregistrare",{err:"", raspuns:"Contul a fost inregistrat cu succes!"});
+                    // let mesaj="<p>Username-ul tău este "+campuriText.username+" pe site-ul <a href='http://localhost:8080/'><i><b><u>Ansamblu rezidential MB</u></b></i></a></p>";   
+                    // let text ="Username-ul tau este "+campuriText.username;
+					trimiteMail(campuriText.username ,campuriText.email);//campuriText.username,
+					//console.log(campuriText.email);
+				}
+			});
+		}
+		else{
+					res.render("pagini/inregistrare",{err:"Eroare formular. "+eroare, raspuns:""});
+		}
+    });
+	
+	//nr ordine: 2
+	formular.on("fileBegin", function(name,campFisier){
+		//console.log("inceput upload: ", campFisier);
+		if(campFisier && campFisier.name!=""){
+			//am  fisier transmis
+			var cale=__dirname+"/poze_uploadate/"+username
+			if (!fs.existsSync(cale))
+				fs.mkdirSync(cale);
+			campFisier.path=cale+"/"+campFisier.name;
+			//console.log(campFisier.path);
+		}
+	});	
+	
+	
+	//nr ordine: 1
+	formular.on("field", function(name,field){
+		if(name=='username')
+			username=field;
+		//console.log("camp - field:", name)
+	});
+	
+
+	
+	//nr ordine: 3
+	formular.on("file", function(name,field){
+		//console.log("final upload: ", name);
+	});
+	
+	
+	
+	
+});
+
+
+
+app.post("/login", function(req,res){
+    let formular = formidable.IncomingForm();
+    formular.parse(req, function(err, campuriText){
+        //console.log(campuriText);
+        let parolaCriptata= crypto.scryptSync(campuriText.parola, parolaServer, 32).toString('ascii');
+        //let comanda= `select username, nume,email, culoare_chat, rol from utilizatori where username= '${campuriText.username}' and parola='${parolaCriptata}'`;
+        let comanda_param= `select id, username, nume, email, telefon, rol from utilizatori where username= $1::text and parola=$2::text`;
+        //console.log(comanda);
+        
+        client.query(comanda_param, [campuriText.username, parolaCriptata], function(err, rez){
+        //client.query(comanda, function(err, rez){
+            if (!err){
+                //console.log(rez);
+                if (rez.rows.length == 1){
+                    req.session.utilizator={
+                        id:rez.rows[0].id,
+                        username:rez.rows[0].username,
+                        nume:rez.rows[0].nume,
+                        email:rez.rows[0].email,
+                        tema_site:rez.rows[0].tema_site,
+						rol:rez.rows[0].rol
+                    }
+                }
+                
+            }
+            res.redirect("/index");
+        });
+    }); 
+})
+
+app.get('/useri', function(req, res){
+	
+	if(req.session && req.session.utilizator && req.session.utilizator.rol=="admin"){
+        client.query("select * from utilizatori",function(err, rezultat){
+            if(err) throw err;
+            res.render('pagini/useri',{useri:rezultat.rows, utilizator:req.session.utilizator});//afisez index-ul in acest caz
+        });
+	} else{
+		res.status(403).render('pagini/403',{mesaj:"Nu aveti acces", utilizator:req.session.utilizator});
+	}
+
+});
+
+app.get("/logout", function(req, res){
+    req.session.destroy();
+    // app.locals.tema_site="x";
+    res.redirect("/index");
+});
+
+app.post("/schimba_rol",function(req, res){
+	if(req.session && req.session.utilizator && req.session.utilizator.rol=="admin"){
+	var formular= formidable.IncomingForm()
+	
+	formular.parse(req, function(err, campuriText, campuriFisier){
+        let newrol = "";
+        if(campuriText.rol == "admin"){
+            newrol = "comun";
+        }
+        else {
+            newrol = "admin";
+        }
+        var comanda = `select * from utilizatori where id= $1::integer`;
+        client.query(comanda,[campuriText.id],function(eroare,rezz){
+            var comanda2 = `UPDATE utilizatori SET rol = $1::text WHERE id = $2::integer;`;
+            if (newrol == "admin"){
+                var mesaj = "<p>Ai fost promovat la rolul de "+newrol+".</p>";
+            }
+            else {
+                var mesaj = "<p>Ai fost retrogradat la rolul de "+newrol+".</p>";
+            }
+            
+            trimiteMail(rezz.rows[0].email, rezz.rows[0].nume, rezz.rows[0].prenume,text, mesaj);
+            client.query(comanda2,[newrol, campuriText.id],function(error,Rez){
+                //console.log(Rez);
+            })
+		// var comanda=`delete from utilizatori where id='${campuriText.id_utiliz}'`;
+		// client.query(comanda, function(err, rez){
+		// 	// TO DO mesaj cu stergerea
+		});
+	});
+	}
+	res.redirect("/useri");
+	
+});
+
+app.get(["despre_noi"],function(req, res){//ca sa pot accesa pagina principala si cu localhost:8080 si cu localhost:8080/index
+    /*
+    console.log("ceva");
+    res.setHeader("Content-Type","text/html");
+    res.write("<!DOCTYPE html><html><head><title>ceva</title></head><body><p>Salut, Costică!</p></body></html>");
+    */
+    
+    res.render("pagini/despre_noi"); /* relative intotdeauna la folderul views*/
+});
+
+// app.get('/useri', function(req, res){
+	
+// 	if(req.session && req.session.utilizator && req.session.utilizator.rol=="admin"){
+//         client.query("select * from utilizatori",function(err, rezultat){
+//             if(err) throw err;
+//             console.log(rezultat);
+//             res.render('pagini/useri',{useri:rezultat.rows, utilizator:req.session.utilizator});//afisez index-ul in acest caz
+//         });
+// 	} else{
+// 		res.status(403).render('pagini/eroare',{mesaj:"Nu aveti acces", utilizator:req.session.utilizator});
+// 	}
+
+// });
+
+// app.post("/sterge_utiliz",function(req, res){
+// 	if(req.session && req.session.utilizator && req.session.utilizator.rol=="admin"){
+// 	var formular= formidable.IncomingForm()
+	
+// 	formular.parse(req, function(err, campuriText, campuriFisier){
+// 		var comanda=`delete from utilizatori where id='${campuriText.id_utiliz}'`;
+// 		client.query(comanda, function(err, rez){
+// 			// TO DO mesaj cu stergerea
+// 		});
+// 	});
+// 	}
+// 	res.redirect("/useri");
+	
+// });
+
+// app.get("/logout", function(req, res){
+//     req.session.destroy();
+//     res.render("pagini/logout");
+// });
+
+app.get("/*",function(req, res){    
+    res.render("pagini"+req.url, function(err,rezultatRandare){
+        if(err){
+            if(err.message.includes("Failed to lookup view")){
+                res.status(404).render("pagini/404");
+            }
+            else 
+                throw err;
+        }
+        else{
+            res.send(rezultatRandare);
+        }
+    });
+});
+
+get_categorii();
+verificaImagini();
+verificaImagini2();
+
+app.listen(8088);
+console.log("Serverul a pornit!");
+

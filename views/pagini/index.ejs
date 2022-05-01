@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    
+    <%- include("../fragmente/head") %>     
+    <link rel="stylesheet" href="temp/galerie-animata.css" type="text/css"/>
+    <link rel="stylesheet" href="resurse/css/print.css" type="text/css"/>
+    <link rel="stylesheet" href="resurse/css/video.css" type="text/css"/>
+    <title>Ansamblu rezidential MB</title>
+    
+    <!-- <script>
+        fetch("http://localhost:8080/galerie-animata.css", {
+            method:'get'
+        }).then(function(response){
+            console.log(response)
+        })
+    </script> -->
+    
+</head>
+
+<body>
+    <%- include("../fragmente/header") %>
+ 
+    <main id="grid-index">
+
+        <div class="banner">
+            <p>Acesta este proiect scolar!</p> 
+        </div >
+        
+
+        <div id="info1" class="box">
+            <img id="welcome" src="resurse/images/interior-fundal.jpg" alt="prezentare" class="imagine">
+            <div class="textprezentare">
+                <p><span class="font">Ansamblul rezidential MB</span></p>
+                <p>Viitoarea dumneavoastra casa.</p>
+            </div>
+        </div>
+
+        <!-- <section id="info1">
+            <div>
+                <img src="resurse/images/interior-fundal1.jpg" alt="Ansamblul rezidențial MB" style="width: 100%;" >
+            </div>
+              </section>   -->
+        
+        <section  id="info2">
+            <p class="text">Pret locuinte in functie de perioada de cumparare si metri patrati locuibili:</p>
+            <div class="tabel-mic">
+                <table >
+                    <thead>
+                        <tr>
+                            <th>Tip locuintă</th>
+                            <th>Mp locuibili</th>
+                            <th>Preț-finalizat</th>
+                            <th>Preț-nefinalizat</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Apartament cu 2 camere</td>
+                            <td>56 mp</td>
+                            <td>55.000 €</td>
+                            <td>50.400 €</td>
+                        </tr>
+                        <tr>
+                            <td>Apartament cu 3 camere</td>
+                            <td>80 mp</td>
+                            <td>75.000 €</td>
+                            <td>72.000 €</td>
+                        </tr>
+                        <tr>
+                            <td>Apartament cu 4 camere</td>
+                            <td>110 mp</td>
+                            <td>105.000 €</td>
+                            <td>99.000 €</td>
+                        </tr>
+                        <tr>
+                            <td>Duplex</td>
+                            <td>180 mp</td>
+                            <td>175.000 €</td>
+                            <td>162.000 €</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td>Loc parcare subteran</td>
+                            <td>10 mp</td>
+                            <td>10.000 €</td>
+                            <td>6.000 €</td>
+                        </tr>
+                        <tr>
+                            <td>Loc parcare suprateran</td>
+                            <td>10 mp</td>
+                            <td>8.000 €</td>
+                            <td>5.000 €</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+    </section>
+        
+        
+        <section id="info3">
+            
+            <div class="month">      
+                <ul>
+                    <li class="prev">&#10094;</li>
+                    <li class="next">&#10095;</li>
+                    <li>
+                        April<br>
+                        <span style="font-size:18px">2021</span>
+                    </li>
+                </ul>
+            </div>
+
+            <ul class="weekdays">
+                <li>Mo</li>
+                <li>Tu</li>
+                <li>We</li>
+                <li>Th</li>
+                <li>Fr</li>
+                <li>Sa</li>
+                <li>Su</li>
+            </ul>
+
+            <ul class="days">  
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+                <li>6</li>
+                <li>7</li>
+                <li>8</li>
+                <li>9</li>
+                <li><span class="active">10</span></li>
+                <li>11</li>
+                <li>12</li>
+                <li>13</li>
+                <li>14</li>
+                <li>15</li>
+                <li>16</li>
+                <li>17</li>
+                <li>18</li>
+                <li>19</li>
+                <li>20</li>
+                <li>21</li>
+                <li>22</li>
+                <li>23</li>
+                <li>24</li>
+                <li>25</li>
+                <li>26</li>
+                <li>27</li>
+                <li>28</li>
+                <li>29</li>
+                <li>30</li>
+                <li>31</li>
+            </ul>
+        </section>
+
+        <section id="info4">
+            <section id="Promotii_apartamente">
+                
+                <h2>Anunturi : Promoții apartamente</h2>
+                <article>
+                    <h3>Ofertă apartamente în stadiu de construcție</h3>
+                    <p class="text">Oferta prezentă constă în:</p>
+                    <ul>
+                        <li>Apartamentul dorit la prețul de 900€/mp</li>
+                        <li>Loc de parcare în parcarea subterană</li>
+                        <li>Reducere de 35% la al doilea loc de parcare</li>
+                        <li>Baie complet utilată cu materiale de cea mai înaltă calitate</li>
+                    </ul>
+                    <p class="text"><strong>Atenție!</strong> Ofertă valabilă până pe data de 15 mai.</p>
+                </article>
+                <article>
+                    <h3>Ofertă apartamente finisate</h3>
+                    <p  class="text">Oferta prezentă constă în:</p>
+                    <ul>
+                        <li>Apartamentul dorit cu 2, 3 sau 4 camere la prețul de 950€/mp</li>
+                        <li>Baie complet utilată cu materiale de cea mai înaltă calitate</li>
+                        <li>Loc de parcare in parcarea subterană</li>
+                        <li>Balcon amenajat după standarde moderne</li>
+                    </ul>
+                    <p class="text"><strong>Atenție!</strong> Ofertă valabila până pe date de 5 mai.</p>
+                </article>
+                <article>
+                    <h3>Ofertă duplex</h3>
+                    <p class="text">Oferta prezentă constă în:</p>
+                    <ul>
+                        <li>Casa dorită la prețul de 920€/mp</li>
+                        <li>Băi complet utilate cu materiale de cea mai înaltă calitate</li>
+                        <li>2 locuri de parcare incluse</li>
+                        <li>Curte amenajată cu gazon si grătar</li>
+                    </ul>
+                    <p class="text"><strong>Atenție!</strong> Ofertă valabilă pânp pe data de 20 aprilie.</p>
+                </article>
+            </section>
+        </section>
+        
+        <section id="info5">
+            <h2>Listă utilizatori online:</h2>
+            <p><b>Utilizatori online</b> (în ultimele 5 minute):
+                <% for (let i=0;i<locals.utiliz_online.length-1;i++) {%>
+                    <%= locals.utiliz_online[i].username %>, 
+                <%}%>
+                <% if(locals.utiliz_online.length>0) { %>
+                    <%= locals.utiliz_online[utiliz_online.length-1].username %>
+                <% }  %>
+            </p>
+            <!-- <ol>
+                <li>Marius Gica</li>
+                <li>Marian Popescu</li>
+                <li>Ion Popa</li>
+                <li>Maria Ionescu</li>
+                <li>Radu Iliescu</li>
+            </ol> -->
+        </section>    
+        
+
+        <section id="info6">
+        <h2>Date despre utilizator și statistici</h2>
+            <p>IP-ul utilizatorului <%- locals.ip %></p>
+            <p>În ultimele 48 de ore site-ul a avut 100 de utilizatori. În ultima săptămână 30 de persoane au vizitat ansamblul rezidențial.</p>
+            <p>Săptămâna trecută 3 utilizatori au rezervat câte un apartament cu 3 camere la etajul 1 și 2.</p>
+        
+        </section>
+
+        <section id="info7">
+            <h2>Date despre site și server:</h2>
+            <p>Site-ul prezinta Ansamblul rezidențial MB, de la fundație până la finisaje, dar și cele mai bune oferte din domeniu, cel mai bun preț-calitate.</p>
+            <p>Dacă doriți să aflați mai multe detalii despre apartamente sau case vă asteptăm să le vedeți sau la numărul de telefon, e-mail afișate mai jos. Vă vom raspunde în cel mai scurt timp. Pentru a face o programare puteți suna tot la numarul de telefon afișat mai jos. </p>
+        </section>
+        
+        
+        
+        <section id="info8">
+           
+            <section id="Despre_ansamblu">
+                <h2>Despre ansamblul rezidențial MB</h2>
+                <p> Fie ca sunteți la început de drum în cariera dumneavoastră sau vă doriți un spațiu mai mare pentru familia dumneavoastră, Ansamblul rezidențial MB vă pune la dispoziție <b>garsoniere</b>, <b>apartamente cu 2 camere</b>, <b>apartamente cu 3 camere</b>, <b>apartamente cu 4 camere</b> și <b>duplexuri</b>, potrivite preferințelor dumneavosatră.</p>
+                <p><b>Ansamblul rezidențial MB</b> este compus din 3 blocuri cu 150 de unități locative,amplasate pe 7 nivele cu parcare subterană, o intrare amenjată cu materiale de cea mai bună calitate și 30 de duplexuri cu parcare si curte individuală. Ansamblul rezidențial MB este amplasat în zona Ghencea, pe Prelungirea Ghencea.</p>
+                <p><b>Ansamblul rezidențial MB</b> dispune de toate utilitățile astfel încat mutarea dumneavoastră în noua casă să fie cât mai ușoară și cât mai plăcută. Fiecare apartament, garsonieră sau casă are centrală proprie pe gaz, încălzire în pardoseală și baie complet utilată cu materiale de cea mai bună calitate.</p>
+                <p><b>Ansamblul rezidențial MB</b> este construit în sectorul 6, pe Prelungirea Ghencea, o zonă care este într-o continuă dezvolatare.</p>
+            </section>
+            <section id="Transportul">
+                <h2>Transportul de la locuința dumneavoastră către restul orașului</h2>
+                <p>Accesul către restul orașului se poate face cu ușurință, atât cu mijloacele de transport în comun, cât și cu mașina personală.</p>
+            </section>
+    
+            <section id="Puncte_de_interes">
+            <h2>Puncte de interes</h2>
+            <p>În apropierea ansamblului rezidențial MB se află multiple puncte de interes precum:</p>
+                <ul>
+                    <li>Supermarket-uri:Mega-Image,Profi,Penny,Lidl</li>
+                    <li>Benzinării:OMV,Petrom,TSV</li>
+                    <li>Farmacii:Catena, Dona, HelpNet</li>
+                    <li>Restaurante:Burger & Grill House, Cofetarie Traditionala, Trattoria al Forno, Mr. Red</li>
+                    <li>Spălătorii:Spălătoria Auto Ecologica, Auto Self Service| Vaportecnic</li>
+                    <li>Magazine diverse:Macelarie Bucuresti, UNIKA, UrbanStore, Magazin Grecesc, Lem's</li>
+                    <li>Grădinite:Grădinita Rose Mary</li>
+                </ul>
+            </section>
+
+            <hr >
+
+            <section id="Materiale">
+                <h2>Materialele folosite în construcția Ansamblului rezidențial MB</h2>
+                <p>Materialele folosite in construirea ansamblului sunt de cea mai bună calitate pentru a oferi clienților noștri un confort sporit și pentru a minimiza cât mai mult costurile întreținerii prin izolarea termică și fonică cu <i>vată bazaltică</i>. Pentru o rezistență sporită și o izoloție termică foarte bună ansamblul este construit cu <i>caramidă Porotherm Robust 25, 375 x 250 x 238 mm</i>. Dimensiunile fierului beton utilizat la construcția celor 3 blocuri :<i> Ø 25 ,  Ø 20 ,  Ø 18 , Ø 16 ,  Ø 12 , Ø 10 / BST 500</i>. Betonul folosit pentru construcția ansamblului este <i>B500</i>, astfel încat blocurile oferă cea mai mare siguranță in cazul unui seism mare ( 9 grade pe scara Richter)</p>
+                <aside>
+                    <p>Mai multe informații despre construcția ansamblului:</p>
+                   
+                    <div class="ifr">
+                        <iframe name="ifr-video" width="560" height="315" src="https://www.youtube.com/embed/mbwuj58UEPg" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;" allowfullscreen>
+                        </iframe>
+                        <div class="tablouri-iframe"> 
+                            <a href="https://www.youtube.com/embed/mbwuj58UEPg" target="ifr-video" class="ifr">Constructia ansamlului </a>
+                            <a href="https://www.youtube.com/embed/CvpJkMrAxjI" target="ifr-video" class="ifr">Tur virtual apartament </a>
+                        </div>
+                    </div>
+                    
+                    
+                </aside>
+            </section>
+
+            <section id="Plata">
+                <h2>Metode de plată</h2>
+                <p>Viitoarea dumneavoastră locuință poate fi achiziționată prin:</p>
+                <ul>
+                    <li>Plata cash</li>
+                    <li>Credit ipotecar sau imobiliar</li>
+                    <li>Prin programul prima casă</li>
+                    <li>Credit nevoi personale cu ipotecă</li>
+                    <li>Credit nevoi personale</li>
+                </ul>
+                <p>În cazul plații cu ajutorul unui credit este necesar un avans de 25% din valoarea imobilului.</p>
+            </section>
+            <section id="faq">
+                <h2>Intrebări frecvente despre ansamblul rezidențial MB</h2>
+                <details>
+                    <summary>Unde putem vedea apartamentele si duplexurile?</summary>
+                    <p>Apartamanetele si duplexurile se pot vedea pe Prelungirea Ghencea, nr.330-340. Puteți face o programare la dezvoltatorul imobiliar pe data cand doriți sa vedeți imobilele. Vă așteptăm cu drag!</p>
+                </details>
+                <details>
+                    <summary>De ce să alegem să cumparăm un apartament din acest ansamblu rezidențial?</summary>
+                    <p>Vă incurajăm să alegeți o locuință din aceast <b>ansamblu rezidențial</b> deoarece este realizat cu materiale de cea mai bună calitate, menționate anterior în secțiunea materiale folosite în construcția ansamblului. În plus puteți vedea etapele construirii fiecărui bloc si fiecărei case in parte, de la săparea fundației până la finisajele din casă. Mai mult ansamblul rezidențial MB vă pune la dispozitie 4 parcari (3 subterane), supravegheate video 24/7, plus un spațiu verde in fața blocului pentru copii.</p>
+                </details>
+                <details>
+                    <summary>Pentru mai multe detalii, unde vă putem contacta?</summary>
+                    <p>Pentru orice intrebări sau curiozitati despre apartamente sau case ne puteți contacta la numarul de telefon:0712 345 678 sau la adresa de e-mail:MBResidence@gmail.com.</p>
+                </details>
+            </section>
+            <br>
+
+            <section id="container-video">
+                <h2>Randarea unui duplex din ansamblul rezidential MB:</h2>
+                <video width="400" height="300"  playsinline  controls loop muted poster="/resurse/images/fundal.png">   
+                    <source src="resurse/video/randare-duplex.mov" type="video/mp4">
+                    <source src="resurse/video/randare-duplex.ogv" type="video/ogv">
+                    <track default src="resurse/video/tracks/Randare-duplex-ro.vtt" kind="captions" srclang="ro" label="romana">
+                    <track src="resurse/video/tracks/Randare-duplex-en.vtt" kind="captions" srclang="en" label="engleza">
+                    </video>          
+            </section>
+
+            <hr>
+            <div class="galeriestatica">
+                <%- include("../fragmente/galerie-statica") %>
+            </div>
+            
+
+            <hr>
+
+            <section id="sectiune-galerie-animata">
+                <h2>Galerie animata</h2>
+                <div id="galerie-animata" class="galerie-a">
+                    <div class="galerie-grid">
+                        <% for (let imag of locals.imagini2){  %>
+                            <figure>
+                            <picture>
+                                <source srcset="/<%-imag.mic%>" media="(max-width:700px)"/>
+                                <img src="/<%-imag.mare%>" alt="text"/>
+                            </picture>
+                            <figcaption><%-imag.descriere%></figcaption>
+                            </figure>
+                        <% } %>
+                    </div>
+                </div>
+            </section>
+    
+
+        </section>
+
+        <p id="watermark"></p>
+
+        <a href="#" class="aa" title="Spre inceput">
+            <div class="cerc">
+                <div class="link_top">&#5123</div>   
+            </div>
+        </a> 
+            
+    </main>
+    <%- include("../fragmente/footer") %>
+    
+
+</body>
+</html>

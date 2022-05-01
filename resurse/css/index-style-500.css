@@ -1,0 +1,36 @@
+@import "meniu-500.css";
+html{
+    font-size:11px;
+}
+
+body{
+    --body-padding:0px;
+}
+
+#grid-index{
+    display:block;
+}
+
+iframe {
+    max-width: 700px;
+    width: 50%;
+    height: 40%;
+}
+
+.tablouri-iframe a{
+    text-decoration:none;
+    width:75px;
+}
+
+
+.tablouri-iframe a:hover{
+    width: 40%;
+}
+
+.tabel-mic {
+    overflow-x: auto;
+}
+
+.button {
+    font-size: 11px;
+}
